@@ -1,0 +1,710 @@
+// Fonts
+//@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+body,html{
+    font-family: "Calibri";
+}
+
+body{
+    padding-top:56.25px;
+}
+
+.navbar-cupet{
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    background: #FE0000;
+    border:none;
+}
+
+.navbar-cupet a{
+    color: #ffffff;
+}
+
+a.central-links{
+    background: #006837;
+}
+
+.central-links-container{
+    max-width: 448.81px;
+    margin: auto;
+    margin-top: 5%;
+}
+
+.central-links-container .central-links-out{
+    // margin: 24.38px;
+    margin-top: 0px;
+    display: inline-block;
+    color: #006837;
+}
+
+.central-links-container .central-links-out a{
+    color: #006837;
+    text-decoration: none;
+}
+
+.central-links-container .central-links-out .text{
+    display: block;
+    position: relative;
+    text-align: center;
+    font-size: 14pt;
+}
+
+.central-links-container .central-links-out .central-links img{
+    position: relative;
+    display: block;
+    width: 97.52px;
+    height: 97.52px;
+    margin-left: 24.38px;
+    margin-right: 24.38px;
+    margin-bottom: 24.38px;
+}
+
+.menu-izquierdo{
+    width: 300px;
+}
+
+#btn-nav-change-status{
+    margin-top: 10px;
+    margin-left: 15px;
+    display: block;
+}
+
+.bars-animate{
+    display: block;
+    background:#ffffff;
+    padding:2px;
+    border-radius:20px;
+    width:30px;
+    margin-bottom:6px;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(0deg);
+    transition: 0.6s;
+}
+
+.bars-animate-arrow-top{
+    display: block;
+    background:#ffffff;
+    padding:2px;
+    border-radius:20px;
+    width:30px;
+    margin-bottom:6px;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(-45deg);
+    transition: 0.6s;
+    margin-top: 1px;
+}
+
+.bars-animate-arrow-middle{
+    display: block;
+    background:#ffffff;
+    padding:2px;
+    border-radius:20px;
+    width:0px;
+    margin-bottom:6px;
+    transition: 0.6s;
+    margin-left: 5px;
+}
+
+.bars-animate-arrow-bottom{
+    display: block;
+    background:#ffffff;
+    padding:2px;
+    border-radius:20px;
+    width:30px;
+    margin-bottom:6px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    transition: 0.6s;
+    margin-top: -1px;
+}
+
+
+#logo-sigi{
+    background-color: #ffffff;
+    padding:8px;
+    float: right;
+}
+
+.main-sidebar{
+    position: fixed;
+    top:0px;
+    left:0px;
+    width: 0px;
+    height: 100%;
+    transition: 0.5s;
+    padding-top: 55px;
+    overflow-x: hidden;
+    z-index: 10;
+}
+
+.main-sidebar a{
+    font-size: 12pt;
+    padding-top:10px;
+    padding-bottom: 10px;
+    height: 40px;
+    width: 250px;
+}
+
+.main-sidebar-expand{
+    width: 300px;
+    overflow: auto;
+    transition: 0.5s;
+    overflow-x: hidden;
+    background: rgba(255,255,255,0.9);
+    position: fixed;
+    z-index: 10;
+    -webkit-box-shadow: 0 3px 4px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0 3px 4px rgba(0,0,0,0.5);
+    box-shadow: 0 3px 4px rgba(0,0,0,0.5);
+}
+
+.main-sidebar a.active-link-sidebar{
+    font-weight: bold;
+    color: #006837;
+    display: block;
+    text-decoration: none;
+    padding-left: 10px;
+    margin-left: 10px;
+}
+
+.main-sidebar a.active-link-sidebar .mark{
+    height: 40px;
+    width: 10px;
+    background: #FE0000;
+    position: absolute;
+    margin-top: -10px;
+    margin-left: -15px;
+}
+
+.main-sidebar a.default-link-sidebar{
+    display: block;
+    margin-left: 0px;
+    text-decoration: none;
+    padding-left: 10px;
+    margin-left: 10px;
+    color: #494949;
+}
+
+.main-sidebar a.default-link-sidebar .mark-alt{
+    height: 20px;
+    width: 10px;
+    background: #FE0000;
+    position: absolute;
+    margin-top: 2px;
+    margin-left: -15px;
+}
+
+.main-sidebar a.default-link-sidebar:hover,
+.main-sidebar a.sub-link-sidebar:hover,
+.main-sidebar a.active-link-sidebar:hover
+{
+    text-decoration: none;
+    font-weight: bold;
+    color: #006837;
+}
+
+.main-sidebar a.sub-link-sidebar{
+    display: block;
+    margin-left: 0px;
+    padding: 10px;
+    text-decoration: none;
+    padding-left: 10px;
+    margin-left: 20px;
+    color: #494949;
+}
+
+.main-sidebar a.sub-link-sidebar .mark{
+    height: 20px;
+    width: 5px;
+    background: #FE0000;
+    position: absolute;
+    margin-top: 2px;
+    margin-left: -15px;
+}
+
+
+/*Navbar modifiation*/
+.navbar {
+    padding: 0px;
+}
+/*End of navbar modification*/
+
+/*Botones personalizados*/
+
+.btn-cancel,
+.btn-accept{
+    width: 30px;
+    height: 15px;
+    padding: 5px;
+    border:none;
+    border-radius: 0px;
+}
+
+.btn-cancel{
+    background: #FE0000;
+    color: #FE0000;
+}
+.btn-accept{
+    background: #006837;
+    color: #006837;
+}
+/*end botones personalizados*/
+
+/*Login modal Changes*/
+.modal-login .modal-dialog{
+    margin-top: 8%;
+}
+
+.modal-login .modal-dialog .modal-content{
+    border-radius: 0px;
+    border:2px solid #FE0000;
+    max-width: 400px;
+    margin: auto;
+}
+
+.modal-login .modal-dialog .modal-content .modal-header,
+.modal-login .modal-dialog .modal-content .modal-body
+{
+    width: 100%;
+}
+
+.modal-login .modal-dialog .modal-content .modal-body{
+    padding-bottom: 0px;
+}
+
+.modal-login .modal-dialog .modal-content .modal-header{
+    background:#FE0000;
+    color: #ffffff;
+    padding: 2px;
+    border-radius: 0px;
+    font-size: 12px;
+    height: 23px;
+}
+
+.modal-login .modal-dialog .modal-content .modal-header .close{
+    background: #FE0000;
+    width: 25px;
+    height: 25px;
+    opacity: 100;
+    border: 2px solid #ffffff;
+    top: 11px;
+    position: relative;
+    margin-right: -5px;
+    padding: 0px;
+}
+
+.modal-login .modal-dialog .modal-content .modal-body .form-group .form-control{
+    border: 1px solid #FE0000;
+    padding: 3px;
+    border-radius: 0px;
+    height: 25px;
+    margin-left: 10px;
+}
+/*End Login Modal Chages*/
+
+/*Modal Simple modal Changes*/
+.modal-simple .modal-dialog{
+    margin-top: 8%;
+}
+
+.modal-simple .modal-dialog .modal-content{
+    border-radius: 0px;
+    border:2px solid #FE0000;
+    max-width: 300px;
+    margin: auto;
+}
+
+.modal-simple .modal-dialog .modal-content .modal-body{
+    padding: 1.3rem;
+}
+
+.modal-simple .croma{
+    background-color: #2A8BC2;
+    padding: 5px;
+    color: #ffffff;
+    display: block;
+}
+
+.modal-simple .modal-dialog .modal-content .modal-header,
+.modal-simple .modal-dialog .modal-content .modal-body
+{
+    width: 100%;
+}
+
+.modal-simple .modal-dialog .modal-content .modal-header{
+    background:#FE0000;
+    color: #ffffff;
+    padding: 5px;
+    border-radius: 0px;
+    font-size: 11pt;
+    height: 33px;
+}
+
+.modal-simple .modal-dialog .modal-content .close{
+    background: #FE0000;
+    width: 25px;
+    height: 25px;
+    opacity: 100;
+    border: 2px solid #ffffff;
+    top: -24px;
+    position: relative;
+    margin-right: -24px;
+}
+
+.modal-simple .modal-dialog .modal-content .modal-body .form-group .form-control{
+    border: 1px solid #FE0000;
+    padding: 5px;
+    border-radius: 0px;
+    height: 30px;
+    margin-left: 10px;
+}
+/*End Login Modal Chages*/
+
+/*Login About Changes*/
+.modal-about .modal-dialog{
+    margin-top: 8%;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.modal-about .modal-dialog-expand{
+    margin-top: 1%;
+    max-width: 800px;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.modal-about .modal-dialog .modal-content{
+    border-radius: 0px;
+    border:2px solid #FE0000;
+    margin: auto;
+}
+
+.modal-about .modal-dialog .modal-content .modal-header,
+.modal-about .modal-dialog .modal-content .modal-body
+{
+    width: 100%;
+}
+
+.modal-about .modal-dialog .modal-content .modal-body{
+    padding-bottom: 0px;
+}
+
+.modal-about .modal-dialog .modal-content .modal-header{
+    background:#FE0000;
+    color: #ffffff;
+    padding: 2px;
+    border-radius: 0px;
+    font-size: 12px;
+    border-bottom: 0px;
+    padding-bottom: 0px;
+    height: 50px;
+}
+
+.modal-about .modal-dialog .modal-content .modal-header .close{
+    background: #FE0000;
+    width: 25px;
+    height: 25px;
+    opacity: 100;
+    border: 2px solid #ffffff;
+    top: 11px;
+    position: relative;
+    margin-right: -5px;
+    padding: 0px;
+}
+
+.modal-about .modal-dialog .modal-content .modal-body{
+    margin-bottom: 20px;
+}
+/*End About Modal Chages*/
+
+/*------------------------------------------------------------*/
+/*--------------------Backdrop Modals-------------------------*/
+/*------------------------------------------------------------*/
+.modal-backdrop.show {
+    background-color: #ffffff;
+    opacity: 0.80;
+}
+/*------------------------------------------------------------*/
+/*----------------end backdrop modals-------------------------*/
+/*------------------------------------------------------------*/
+
+/*Check box cupet*/
+.check-box-cupet{
+    display: inline-flex;
+    position: relative;
+    width: 15px;
+    height: 15px;
+    border:1px solid #FE0000;
+}
+/*End checckbox*/
+
+//Show more about button
+#show_more_about,#show_less_about{
+    display:inline-block;
+    width: 10px;
+    height: 10px;
+    background-size: cover;
+    cursor: pointer;
+}
+
+#show_less_about{
+    float: right;
+    margin-top: 30px;
+    margin-right: 20px;
+}
+
+#details_about{
+    width: 100%;
+    display: none;
+}
+
+#details_about .inside{
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 2px solid #006837;
+    margin-left:25px;
+    margin-right:25px;
+    max-height: 340px;
+    overflow: auto;
+    text-align: justify;
+}
+
+
+/*Texts colors*/
+.text-green{
+    color: #006837;
+}
+
+/*--------------------------------*/
+/*-------- Square Buttons --------*/
+/*--------------------------------*/
+
+.update-square,
+.cancel-square{
+    width: 25px;
+    height: 25px;
+    display: inline-flex;
+}
+
+.update-square{
+    background-color: #3AB54A;
+}
+
+.cancel-square{
+    background-color: #FE0000;
+}
+
+.options{
+    display: inline-flex;
+    left: -4px;
+    position: relative;
+}
+
+/*--------------------------------*/
+/*------ End Square Buttons ------*/
+/*--------------------------------*/
+
+.title-config{
+    font-size: 14pt;
+    font-weight: 400;
+    padding-left: 12px;
+    color:#006837;
+}
+
+/*--------------------------------*/
+/*---- Editable inputs Inline ----*/
+/*--------------------------------*/
+
+.edit-no{
+    background: transparent;
+    border: 1px solid transparent;
+    color:#006837;
+    width: 100%;
+}
+
+.edit-yes{
+    background: #eeeeee;
+    border: 1px solid transparent;
+    border-bottom: 1px solid #FE0000;
+    color:#006837;
+    width: 100%;
+}
+
+/*--------------------------------*/
+/*-- End Editable inputs Inline --*/
+/*--------------------------------*/
+
+.title-config .mark{
+    width: 1px;
+    height: 10px;
+    background-color: #006837;
+    position: absolute;
+    margin-left: -18px;
+    margin-top: 7px;
+}
+
+.text-config{
+    color:#006837;
+}
+
+.edit-this{
+    cursor:pointer;
+}
+
+/*------Form inline edit------*/
+
+.input-span-text,
+.input-span-select{
+    cursor: pointer;
+}
+
+.input-span-text:focus,
+.input-span-select:focus{
+    cursor: pointer;
+    outline: 1px solid #00b3ee;
+}
+
+.table > thead > tr > td.row-selected,
+.table > tbody > tr > td.row-selected,
+.table > tfoot > tr > td.row-selected,
+.table > thead > tr > th.row-selected,
+.table > tbody > tr > th.row-selected,
+.table > tfoot > tr > th.row-selected,
+.table > thead > tr.row-selected > td,
+.table > tbody > tr.row-selected > td,
+.table > tfoot > tr.row-selected > td,
+.table > thead > tr.row-selected > th,
+.table > tbody > tr.row-selected > th,
+.table > tfoot > tr.row-selected > th {
+    background-color: #f7adad;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: #d7f0db;
+}
+
+.table {
+    background-color: #edfcef;
+}
+
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+    padding: 0px;
+    line-height: 1.42857143;
+    vertical-align: middle;
+    border-top: none;
+}
+
+.table > thead > tr > td .input-span-select,
+.table > thead > tr > td .input-span-text,
+.table > tbody > tr > td .input-span-select,
+.table > tbody > tr > td .input-span-text,
+.table > tfoot > tr > td .input-span-select,
+.table > tfoot > tr > td .input-span-text {
+    padding: 7px;
+    display: block;
+}
+
+.table > thead > tr > th{
+    padding: 7px;
+}
+
+.table > thead > tr{
+    border-bottom: none;
+}
+.table > body{
+    border-top: none;
+}
+
+.table > thead > tr > th{
+    font-family: "Calibri";
+    font-style: italic;
+    font-weight: bold;
+    font-size: 12pt;
+}
+
+.table > tbody > tr > td{
+    font-family: "Calibri Light";
+    font-style: italic;
+    font-size: 12pt;
+}
+
+.form-control{
+    border-radius: 0px;
+}
+
+.header-inline-edit{
+    background: #006837;
+    height: 36px;
+    border-top: 8px solid #000000;
+}
+
+#delete_records #quantity_selected{
+    position: absolute;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 9px;
+    padding: 5px;
+    margin-left: -4px;
+    margin-top: -18px;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.70rem;
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0px;
+    -webkit-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.update-square-inline-edit,
+.cancel-square-inline-edit{
+    width: 35px;
+    height: 35px;
+    display: inline-flex;
+}
+
+
+.update-square-inline-edit{
+    background-color: #3AB54A;
+}
+
+.cancel-square-inline-edit{
+    background-color: #FE0000;
+}

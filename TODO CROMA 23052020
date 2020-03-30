@@ -1,0 +1,43 @@
+ARREGLAR GUILLE
+- Diseño de los validar, dos lineas en caso de texto grande     (X)
+- no se cambie el tamaño de los input                           (X)
+- select personas, se ve mal                                    (X)
+- imagen de los checkbox
+- paginado no mas de tres botones de numeros mas los basicos    (X)
+<< < 1 2 3 > >>
+
+CROMA TODO SIGI
+
+GENERALES
+Inserción,
+- generación de todos los inputs y sus validaciones
+- valdiación de los edits
+- arreglar los exportar vista(pdf listos)
+- ver lo de jose el doc
+- los exportar solo cundo no esté vacío
+
+
+-   Configuraciones:
+    Revisar editar empresa los toast si van o no (preguntar)
+    revisar e conf
+- botones inlines de emrpesa
+
+
+- Permisos, falta gestión
+
+
+- diseño de los checkbox
+
+
+Capital humano
+
+- pantalla e binvenida, diseño
+- colores de los garficos
+- diseño de los componentes de esta vista
+
+Gestión de áreas,  juego de los colores, boton para agregar
+
+
+
+revisar los selects en la tabla, que cuando se selecciona no se cambia
+revisar Municipio no sale la provincia

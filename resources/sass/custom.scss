@@ -1,0 +1,202 @@
+.navbar-cupet{
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    background: #FE0000;
+}
+
+.navbar-cupet a{
+    color: #ffffff;
+}
+
+a.central-links{
+    width: 97.52px;
+    height: 97.52px;
+    background: #006837;
+    display: inline-flex;
+    margin: 24.38px;
+}
+
+.central-links-container{
+    max-width: 500px;
+    margin: auto;
+}
+
+.menu-izquierdo{
+    width: 300px;
+}
+
+#btn-nav-change-status{
+    margin-top: 10px;
+    margin-left: 15px;
+    display: block;
+}
+
+.bars-animate{
+    display: block;
+    background:#ffffff;
+    padding:2px;
+    border-radius:20px;
+    width:30px;
+    margin-bottom:6px;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(0deg);
+    transition: 0.6s;
+}
+
+.bars-animate-arrow-top{
+    display: block;
+    background:#ffffff;
+    padding:2px;
+    border-radius:20px;
+    width:30px;
+    margin-bottom:6px;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(-45deg);
+    transition: 0.6s;
+    margin-top: 1px;
+}
+
+.bars-animate-arrow-middle{
+    display: block;
+    background:#ffffff;
+    padding:2px;
+    border-radius:20px;
+    width:0px;
+    margin-bottom:6px;
+    transition: 0.6s;
+    margin-left: 5px;
+}
+
+.bars-animate-arrow-bottom{
+    display: block;
+    background:#ffffff;
+    padding:2px;
+    border-radius:20px;
+    width:30px;
+    margin-bottom:6px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    transition: 0.6s;
+    margin-top: -1px;
+}
+
+
+#logo-sigi{
+    background-color: #ffffff;
+    padding:8px;
+    float: right;
+}
+
+#current_module{
+    padding:8px;
+    float: right;
+}
+
+.main-sidebar{
+    position: fixed;
+    top:0px;
+    left:0px;
+    width: 0px;
+    height: 100%;
+    transition: 0.5s;
+    padding-top: 55px;
+    overflow: hidden;
+    overflow-x: hidden;
+}
+
+.main-sidebar a{
+    font-weight: 12pt;
+    padding-top:10px;
+    padding-bottom: 10px;
+    height: 40px;
+    width: 400px;
+}
+
+.main-sidebar-expand{
+    width: 300px;
+    overflow: auto;
+    transition: 0.5s;
+    overflow-x: hidden;
+}
+
+.main-sidebar a.active-link-sidebar{
+    font-weight: bold;
+    color: #006837;
+    display: block;
+    margin-left: 0px;
+    text-decoration: none;
+    padding-left: 10px;
+    margin-left: 10px;
+}
+
+.main-sidebar a.active-link-sidebar .mark{
+    height: 40px;
+    width: 10px;
+    background: #FE0000;
+    position: absolute;
+    margin-top: -10px;
+    margin-left: -15px;
+}
+
+.main-sidebar a.default-link-sidebar{
+    display: block;
+    margin-left: 0px;
+    text-decoration: none;
+    padding-left: 10px;
+    margin-left: 10px;
+    color: #494949;
+}
+
+.main-sidebar a.default-link-sidebar .mark-alt{
+    height: 20px;
+    width: 10px;
+    background: #FE0000;
+    position: absolute;
+    margin-top: -0px;
+    margin-left: -15px;
+}
+
+.main-sidebar a.default-link-sidebar:hover,
+.main-sidebar a.sub-link-sidebar:hover,
+.main-sidebar a.active-link-sidebar:hover
+{
+    text-decoration: none;
+    font-weight: bold;
+    color: #006837;
+}
+
+.main-sidebar a.sub-link-sidebar{
+    display: block;
+    margin-left: 0px;
+    padding: 10px;
+    text-decoration: none;
+    padding-left: 10px;
+    margin-left: 20px;
+    color: #494949;
+}
+
+.main-sidebar a.sub-link-sidebar .mark{
+    height: 20px;
+    width: 5px;
+    background: #FE0000;
+    position: absolute;
+    margin-top: -0px;
+    margin-left: -15px;
+}
+
+
+/*Navbar modifiation*/
+.navbar {
+    padding: 0px;
+}
+/*End of navbar modification*/

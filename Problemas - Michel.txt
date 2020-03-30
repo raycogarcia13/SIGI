@@ -1,0 +1,25 @@
+
+<<<<<<< HEAD
+=======
+En app\Http\Controllers\CapHum\vialLeyesController.php
+
+Tiene un campo booleano, ¿Cómo hacer para que se forme un input checkbox?
+
+Me sale la relación en el sentido de uno a varios (toMany), pero el de vuelta (belongsTo), no me funciona
+
+<<<<<<< HEAD
+>>>>>>> a65c7b310b6b0e74d91591adac3c39b802e352ec
+=======
+hace falta instalar el:
+
+composer require nesbot/carbon
+
+https://carbon.nesbot.com/#gettingstarted
+https://carbon.nesbot.com/docs/
+
+Para la gestión de las fechas, los trimestres, semestres
+
+El 'composer require nesbot/carbon' da error de compatibilidad.
+>>>>>>> 5f58cedafe49023d1f6a777278a74ff3677639ab
+
+
