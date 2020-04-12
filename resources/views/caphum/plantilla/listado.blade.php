@@ -12,7 +12,6 @@
             <a href="#" class="active-link-sidebar f" @if ('plantilla' != $plantilla) style="font-weight: bold;color: #006837;" @else style="cursor:auto;font-weight: bold;color: #dc3545;" @endif>Plantilla de Cargos</a>
             <a href="#" class="active-link-sidebar f" style="font-weight: bold;color: #006837;">Plantilla</a>
             <a href="#" class="active-link-sidebar f" style="font-weight: bold;color: #006837;">Resumen Plantilla</a>
-            <a href="#" class="active-link-sidebar f" style="font-weight: bold;color: #006837;">Resumen Plantilla</a>
             <a href="#" class="active-link-sidebar f" style="font-weight: bold;color: #006837;">Reg Trabajadores</a>
             <a href="#" class="active-link-sidebar f" style="font-weight: bold;color: #006837;">Reg. Altas y Bajas</a>
         </div>
@@ -28,7 +27,15 @@
     <?php $user='yes'; ?>
     <div class="container" style="margin-top: 2%;">
         <iframe id="txtArea1" style="display:none"></iframe>
-        <h3 style="font-weight: bold;color: #006837;">{{$header}}</h3>
+        <div class="row">
+            <div class="col-sm">
+                <h3 style="font-weight: bold;color: #006837;">{{$header}}</h3>
+            </div>
+            <div class="col-sm text-right">
+                <p>Resolución 29/2014 Ministerio del Trabajo y Seguridad Social, Anexo 14<span style="color:#006837;"> > i </span>
+                </p>
+            </div>
+        </div>
         @include('template.inline_edit_sections.headerGestion')
         <div id="dataContent">
             <table id="tableData" class="table table-striped inline-edit">

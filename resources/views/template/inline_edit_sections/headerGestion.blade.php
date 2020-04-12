@@ -17,7 +17,7 @@
     <a href="#" id="csvExport" class="float-left text-light btnHover" data-icon="S_Btn_CSV" data-tooggle="tooltip" data-placement="top" title="Exportar CVS">
         <img src="{{asset('images/iconos/config/S_Btn_CSV_StandBy.svg')}}" alt="" height="30" width="30">
     </a>
-    
+
     <div class="float-left divider-actions-table-inline-edit"></div>
     <a href="#" onclick="moveTable('upOne')" class="float-left text-light btnHover"  data-icon="S_Btn_toUp" data-tooggle="tooltip" data-placement="top" title="Llevar al final"><img
             src="{{asset('images/iconos/config/S_Btn_toUp_StandBy.svg')}}" alt="" width="30" height="30"></a>
@@ -28,16 +28,16 @@
     <a href="#" onclick="moveTable('bottom')" class="float-left text-light btnHover" data-icon="S_Btn_toEnd" data-tooggle="tooltip" data-placement="top" title="Bajar una posicion"><img
             src="{{asset('images/iconos/config/S_Btn_toEnd_StandBy.svg')}}" alt="" width="30" height="30"></a>
     <div class="float-left divider-actions-table-inline-edit"></div>
-    
+
     <div style="display: inline-flex">
         <a href="#" id="boton_switch" class="float-left text-light btnHover" data-icon="S_Btn_nomenc" data-tooggle="tooltip" data-placement="top" title="Navegar" data-status="off">
             <img src="{{asset('images/iconos/config/S_Btn_nomenc_StandBy.svg')}}" alt="" height="30" width="30">
         </a>
         <div id="switch_list">
-            <a href="#">Elementos de la lista</a>
-            <a href="#">Elementos de la lista</a>
-            <a href="#">Elementos de la lista</a>
-            <a href="#">Elementos de la lista</a>
+            <a href="{!! url('/caphum/categoriasOcupacionales') !!}" style="text-align: left;">Categorías</a>
+            <a href="{!! url('/caphum/nivelesPreparacion') !!}" style="text-align: left;">Niveles de preparación</a>
+            <a href="{!! url('/caphum/gruposEscala') !!}" style="text-align: left;">Grupos escalas</a>
+            <a href="{!! url('/caphum/cargos') !!}" style="text-align: left;">Cargos</a>
         </div>
         <a href="#" id="boton_charts" data-url="{{url('graficos/Grafico_Ejemplo')}}" class="float-left text-light btnHover" data-icon="S_Btn_Pie" title="Graficos">
             <img src="{{asset('images/iconos/config/S_Btn_Pie_StandBy.svg')}}" alt="" height="30" width="30">

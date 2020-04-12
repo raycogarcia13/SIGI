@@ -5,8 +5,9 @@ namespace App\Http\Controllers\Caphum;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Caphum\Sexo;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\DB;
+
 
 class SexoController extends Controller
 {

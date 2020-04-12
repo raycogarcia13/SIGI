@@ -30,12 +30,12 @@ class CategoriasOcupacionalesController extends Controller
             'position'=>['edit'=>false,'label'=>'#'],
             'nombre'=>['edit'=>true,'label'=>'Nombre','rules'=>'data-validate-length-range="6"','type'=>'text'],
             'acronimo'=>['edit'=>true,'label'=>'Abreviatura','rules'=>'required','type'=>'text'],
-            'tipo'=>['edit'=>true,'label'=>'Abreviatura','rules'=>'required','type'=>'text'],
+            'tipo'=>['edit'=>true,'label'=>'Tipo','rules'=>'required','type'=>'text'],
         ];
         $new=[
             'nombre'=>['placeholder'=>'Nombre','label'=>'Nombre','rules'=>'required','type'=>'text','id'=>"nombreM"],
-            'acronimo'=>['placeholder'=>'Abreviatura','label'=>'Acrónimo','rules'=>'required|parent=nombreM','type'=>'acronimo','id'=>"acronimo"],
-            'tipo'=>['placeholder'=>'tipo','label'=>'Tipo','rules'=>'required|parent=nombreM','type'=>'tipo','id'=>"tipo"],
+            'acronimo'=>['placeholder'=>'Abreviatura','label'=>'Abreviatura','rules'=>'required|parent=nombreM','type'=>'acronimo','id'=>"acronimo"],
+            'tipo'=>['placeholder'=>'Tipo','label'=>'Tipo','rules'=>'required|parent=nombreM','type'=>'tipo','id'=>"tipo"],
         ];
         return view('crud.listado')->with([
             'base_title'=>'CapHum | Categorias Ocupacionales',
@@ -95,6 +95,7 @@ class CategoriasOcupacionalesController extends Controller
         CategoriasOcupacionales::create([
             'nombre'=> $request->nombre,
             'acronimo'=>$request->acronimo,
+            'tipo'=>$request->tipo,
             'position'=>$last->position+1
         ]);
         return ['success'=>true];
@@ -112,6 +113,7 @@ class CategoriasOcupacionalesController extends Controller
         $data=CategoriasOcupacionales::find($id);
         $data->nombre=$request->nombre;
         $data->acronimo=$request->acronimo;
+        $data->tipo=$request->tipo;
         $data->save();
         return ['success'=>true,'message'=>'Edición satisfactoria'];
     }

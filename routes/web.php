@@ -40,12 +40,20 @@ Route::group(['prefix' => 'caphum'], function () {
     Route::get('/', ['as'=>'caphum','uses'=>'Caphum\CaphumController@index']);
     Route::resource('areas', 'Caphum\AreasController',["as" => 'caphum']);
 
+    //------------------- Plantill ------------------------------
     Route::resource('plantilla', 'Caphum\PlantillaCargosController',["as" => 'plantilla']);
-    
-    
+
+
+    // CapHum Cargos
+    Route::resource('cargos', 'Caphum\CargosController',["as" => 'caphum']);
+    Route::get('/getCargos', ['as'=>'getCargos','uses'=>'Caphum\CargosController@getJson']);
+    Route::put('/cargoss/reactivar', ['as'=>'reactivarcargos','uses'=>'Caphum\CargosController@reactivar']);
+
+
     //------------------------------ NOMENCLADORES ------------------------------------------------------------
-    Route::resource('categoriaOcupacionals', 'Caphum\CategoriasOcupacionalesController', ["as" => 'caphum']);
-    // Route::resource('grupoEscalas', 'Caphum\Grupo_escalaController', ["as" => 'caphum']);
+
+    // Route::resource('gruposEscala', 'Caphum\GruposEscalaController', ["as" => 'caphum']);
+
     // CapHum Motivos de las Bajas
     Route::resource('motivosBajas', 'Caphum\MotivosBajasController',["as" => 'caphum']);
     Route::get('/getMotivosBajas', ['as'=>'getMotivosBajas','uses'=>'Caphum\MotivosBajasController@getJson']);
