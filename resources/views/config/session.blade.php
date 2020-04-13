@@ -28,13 +28,16 @@
                                 @if ($errors->has('inactividad'))<span class="help-block"><strong>{{ $errors->first('inactividad') }}</strong></span>@endif
                             </div>
                         </div>
-                        
+
                         <div class="clearfix"></div>
                         <div class="form-group" style="margin-top:10px;">
-                            <label class="col-md-6">
-                                <input @if($session->simultaneo=='t') checked @endif type="checkbox" name="simultaneo">
-                                Simultáneo desde distintas estaciones
-                            </label>
+                            <div
+                                class="edit-check"
+                                data-name="simultaneo"
+                                data-label="Simultáneo desde distintas estaciones"
+                                data-id="simultaneo"
+                                data-checked="{!! ($session->simultaneo=='t')?'on':'off' !!}">
+                            </div>
                         </div>
                         <div class="clearfix"></div>
                     </div>
@@ -51,7 +54,9 @@
 @endsection
 
 @section('scripts')
+<script src="{{url('js/render_components.js')}} "></script>
     <script>
+        renderComponents()
         let msg="Datos de inicio de sesión actualizados correctamente.";
         let status="{{session('status')}}"
         if(status=="correcto")

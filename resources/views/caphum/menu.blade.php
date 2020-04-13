@@ -3,6 +3,9 @@
 
 <a href="{!! url('/caphum/plantilla') !!}" class="default-link-sidebar"><div class="mark-alt"></div>Plantilla de cargos</a>
 <a href="#" class="sub-link-sidebar"><div class="mark"></div>Anexo 14</a>
+<a href="#" class="sub-link-sidebar"><div class="mark"></div>Anexo 14 A</a>
+<a href="#" class="sub-link-sidebar"><div class="mark"></div>Anexo 14 B a)</a>
+<a href="#" class="sub-link-sidebar"><div class="mark"></div>Anexo 14 B b)</a>
 
 
 

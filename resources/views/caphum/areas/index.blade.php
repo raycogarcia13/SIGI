@@ -3,7 +3,7 @@
 @section('title') CapHum | Áreas @stop
 
 @section('current_section')
-    <img src="{{asset('images/iconos/generales/SVG_CUPET_Btn_On_RRHH.svg')}}    " width="40" height="40" style="position:absolute;margin-left: -70px;margin-top: 0px;">
+    <img src="{{asset('images/iconos/generales/SVG_CUPET_Btn_On_RRHH.svg')}}" width="40" height="40" style="position:absolute;margin-left: -70px;margin-top: 0px;">
 @stop
 
 @section('menuh')
@@ -15,19 +15,35 @@
 @section('content')
 <div class="container" style="margin-top: 2%;">
         <h3 style="font-weight: bold;color: #006837;">Organización de las Áreas</h3>
+        
+        <div id="headerInlineEditContent">
+            <div class="header-inline-edit">
+                {{--Left Side--}}
+                <a href="#" id="pdfExport" class="float-left text-light btnHover" data-icon="S_Btn_Acrobat" data-tooggle="tooltip" data-placement="top" title="Exportar PDF"><img
+                        src="{{asset('images/iconos/config/S_Btn_Acrobat_StandBy.svg')}}" alt="" height="30" width="30"></a>
+                <a href="#" id="wordExport" class="float-left text-light btnHover" data-icon="S_Btn_Word" data-tooggle="tooltip" data-placement="top" title="Exportar WORD">
+                    <img src="{{asset('images/iconos/config/S_Btn_Word_StandBy.svg')}}" alt="" height="30" width="30">
+                </a>
+                {{--Right Side--}}
+                <div class="float-right">
+                    <button id="saveBtn" disabled class="btn-accept float-sm-left" style="height:30px; background-color:#009e0f"></button>
+                    <button id="cancelBtn" class="btn-cancel float-sm-left" style="height:30px;"></button>
+                </div>
+            
+            </div>
+        </div>
+        
         <div class="box box-primary">
             <div class="box-body">
                 <div id="graficoEntidad" style="background-color: #fff; height: 400px; margin-top:5px"></div>                
             </div>
-            <div class="clearfix" style="margin-top:5px"></div>
-            <button id="saveBtn" disabled class="btn-accept float-sm-left"></button>
-            <div class="clearfix"></div>
         </div>
     </div>
 @endsection
 
 @section('scripts')
     <script src="{{asset('vendor/template/libs/gojs/go.js')}}"></script>
+    <script src="{{asset('vendor/jspdf/jspdf.min.js')}}"></script>
 
     <script>
         function init() {
@@ -282,7 +298,28 @@
 
     $('#saveBtn').click(function(){
         save();
-    })
+    });
+
+    $('#cancelBtn').click(function(){
+        location.href='{{url('/caphum/areas')}}';
+    });
+
+    $('#pdfExport').click(function(){
+        let div = document.getElementById('graficoEntidad');
+        let canvas = div.getElementsByTagName('canvas')[0];
+        // var ctx = canvas.toDataURL();
+        // let data = canvas.toDataURL('image/jpeg').slice('data:image/jpeg;base64,'.length);
+        let data =  myDiagram.makeImageData({
+            size: new go.Size(1000,1000)
+        });
+
+        var doc = new jsPDF('p', 'pt', 'letter');
+        // var elementHTML = '<img src="'+ctx+'">';
+        doc.addImage(data, 'JPEG', 150, 50, 400, 500);
+        
+        doc.save('SIGI-Áreas.pdf');
+    });
+
     init();
 
 </script>

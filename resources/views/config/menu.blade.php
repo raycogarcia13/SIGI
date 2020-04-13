@@ -4,8 +4,7 @@
 
 <a href="#" class="default-link-sidebar"><div class="mark-alt"></div>Seguridad</a>
 <a href="{!! route('accesos') !!}" class="sub-link-sidebar"><div class="mark"></div>Listas de acceso</a>
-<a href="{!! route('politicas') !!}" class="sub-link-sidebar"><div class="mark"></div>Políticas de contraseñas</a>
-<a href="{!! route('sesion') !!}" class="sub-link-sidebar"><div class="mark"></div>Inicios de sesión</a>
+<a href="{!! route('politicas') !!}" class="sub-link-sidebar"><div class="mark"></div>Políticas de seguridad</a>
 
 <a href="#" class="default-link-sidebar" data-toggle="modal" data-target="#desarrollado-por"><div class="mark-alt"></div>Desarrollado por</a>
 <a href="#" class="default-link-sidebar" data-toggle="modal" data-target="#acerca-de"><div class="mark-alt"></div>Acerca de</a>

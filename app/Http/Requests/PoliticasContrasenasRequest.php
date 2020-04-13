@@ -27,7 +27,8 @@ class PoliticasContrasenasRequest extends FormRequest
             'longitud_minima'=>'required',
             'intentos_fallidos'=>'required',
             'notif_vencimiento'=>'required',
-            'tiempo_validez'=>'required'
+            'tiempo_validez'=>'required',
+            'inactividad'=>'required'
         ];
     }
 }

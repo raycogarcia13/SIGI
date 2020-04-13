@@ -87,8 +87,8 @@ function backDropTransparente(estado) {
         $("#backdrop_cupet_transparent").remove();
 
     $('#backdrop_cupet_transparent').off().on('click', function() {
-        $("#lista_trabajadores_invitados,#cantidad_registros").fadeOut('fast');
-        $("#boton_cantidad_registros_mostar").attr('data-status', 'off');
+        $("#lista_trabajadores_invitados,#cantidad_registros,#switch_list").fadeOut('fast');
+        $("#boton_cantidad_registros_mostar,#boton_switch").attr('data-status', 'off');
         $('#backdrop_cupet_transparent').remove()
         $("#lista_modulos").removeClass('open').addClass('close')
         $(".main-sidebar").removeClass('main-sidebar-expand');
@@ -286,7 +286,6 @@ $("#boton_charts").off().on('click', function() {
 })
 
 $("#boton_switch").off().on('click', function() {
-    alert('switch');
     if ($(this).data('status') == 'off') {
         $(this).attr('data-status', 'on');
         $("#switch_list").fadeIn('fast');

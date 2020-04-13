@@ -42,6 +42,20 @@
             <div class="float-left divider-actions-table-inline-edit"></div>
         @endif
         
+        @if(isset($links))
+        <div style="display: inline-flex">
+            <a href="#" id="boton_switch" class="float-left text-light btnHover" data-icon="S_Btn_nomenc" data-tooggle="tooltip" data-placement="top" title="Navegar" data-status="off">
+                <img src="{{asset('images/iconos/config/S_Btn_nomenc_StandBy.svg')}}" alt="" height="30" width="30">
+            </a>
+            <div id="switch_list">
+                @foreach($links as $item)
+                    <a href="{{$item['url']}}">{{$item['title']}}</a>
+                @endforeach
+            </div>
+            <div class="float-left divider-actions-table-inline-edit"></div>
+        </div>
+        @endif
+
         <div style="display: inline-flex">
             <a href="#" class="float-left" id="boton_cantidad_registros_mostar" data-status="off">
                 <div style="height: 30px;width: 30px;color: #333333;font-weight: bold;background: #ffffff;padding-top: 2px;text-align: center;border-radius: 0px;margin-top: 0px;" id="cantidad_por_pagina">15</div>

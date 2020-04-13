@@ -22,8 +22,6 @@ Route::get('/config/accesos', ['as'=>'accesos','uses'=>'Config\ConfigController@
 Route::get('/config/accesosData', ['as'=>'accesosData','uses'=>'Config\ConfigController@accesosData']);
 Route::get('/config/politicas', ['as'=>'politicas','uses'=>'Config\ConfigController@politicas']);
 Route::put('/config/politicas/edit', ['as'=>'politicas.edit','uses'=>'Config\ConfigController@politicasStore']);
-Route::get('/config/sesion', ['as'=>'sesion','uses'=>'Config\ConfigController@sesion']);
-Route::put('/config/sesion/edit', ['as'=>'sesion.edit','uses'=>'Config\ConfigController@sessionStore']);
 // usuarios
 Route::resource('/config/usuarios','Config\UsuariosController');
 Route::put('/config/usuario/reactivar', ['as'=>'reactivarUsuario','uses'=>'Config\UsuariosController@reactivar']);
@@ -41,8 +39,8 @@ Route::group(['prefix' => 'caphum'], function () {
     Route::resource('areas', 'Caphum\AreasController',["as" => 'caphum']);
 
     Route::resource('plantilla', 'Caphum\PlantillaCargosController',["as" => 'plantilla']);
-    
-    
+    Route::get('getPlantilla', ['as'=>'caphum','uses'=>'Caphum\PlantillaCargosController@getJson']);
+
     //------------------------------ NOMENCLADORES ------------------------------------------------------------
     Route::resource('categoriaOcupacionals', 'Caphum\CategoriasOcupacionalesController', ["as" => 'caphum']);
     // Route::resource('grupoEscalas', 'Caphum\Grupo_escalaController', ["as" => 'caphum']);

@@ -200,7 +200,7 @@
                                     inlineEditInit();
             });
         }
-        loadInlineEditData('{{$data_path}}?cantidad='+cantidadPorPagina+'&estado='+estadoUsuarioSeleccionado+'&filtro='+$("#search_on_table").val());
+        loadInlineEditData('{{$data_path}}?cantidad='+cantidadPorPagina+'&filtro='+$("#search_on_table").val());
         // Quitar el indicador de uso
         function unsetBorderTop(){
             $("#loadActiveUser,#loadInactiveUser").removeClass('active-border-top');

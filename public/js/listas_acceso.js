@@ -62,7 +62,7 @@ function listasAcceso(path) {
             if (this_object_1_parent.attr('check') == 'yes') {
                 //Reasignando permisos
 
-                var actualizados=mergePermisos(this_object_1.attr('data'), permisos_chequeados);
+                var actualizados = mergePermisos(this_object_1.attr('data'), permisos_chequeados);
                 this_object_1.attr('data', actualizados);
 
                 this_object_1.html("");
@@ -250,28 +250,25 @@ function updatePermisos(permisos, personas) {
 
 function mergePermisos(actual, nuevos) {
     var todos = [];
-    var permisos=actual;
+    var permisos = actual;
     console.log(actual);
     $.each(actual.split('|'), function(i, val) {
-        if(val!=0)
-        {
+        if (val != 0) {
             var perm = val.split(':');
-            todos.push({id:perm[0],val:perm[1]})
+            todos.push({ id: perm[0], val: perm[1] })
         }
     });
 
     $.each(nuevos.split('|'), function(i, val) {
-        if(val!=0)
-        {
-            var act=false;
+        if (val != 0) {
+            var act = false;
             var perm = val.split(':');
-            for(let i=0;i<todos.length;i++)
-            {
-                if(todos[i].id==perm[0])
-                    act=true;
+            for (let i = 0; i < todos.length; i++) {
+                if (todos[i].id == perm[0])
+                    act = true;
             }
-            if(act==false)
-                permisos+='|' +perm[0]+":"+perm[1];
+            if (act == false)
+                permisos += '|' + perm[0] + ":" + perm[1];
         }
     });
 
@@ -287,8 +284,7 @@ function inlineEditInit() {
         var this_element = $(this);
 
         let type = $(this).attr('type-row');
-        if (type == 'text' || type == 'number')
-        {
+        if (type == 'text' || type == 'number') {
             this_element.html('<input style="display: none;" type="' + type + '"  class="input-text" value="' + this_element.attr('edit-current-value') + '" disabled>');
             this_element.append('<span class="input-span-text">' + this_element.attr('edit-current-value') + '</span>');
         }
@@ -588,7 +584,7 @@ function inlineEditInit() {
         var this_element_parent_children_input = this_element.parent('div').parent('.edit-select').children('select');
         this_element_parent_td.children('.input-span-select').html('<img src="' + base_path + 'images/iconos/config/SVG__CUPET_Btn_Desplegar_On-IZQ.svg' + '" width="20">' + this_element.text());
         this_element_parent_td.attr('edit-current-value', this_element.data('value'));
-        this_element_parent_children_input.html('<option selected value="'+this_element.data('value')+'">'+this_element.data('value')+'</option>');
+        this_element_parent_children_input.html('<option selected value="' + this_element.data('value') + '">' + this_element.data('value') + '</option>');
         this_element_parent_td.children('.input-select').hide();
         this_element.parent('.input-select').children('a').removeClass('selected');
         this_element.parent('.input-select').children('a').children('img').attr('src', base_path + 'images/iconos/config/SVG__CUPET_Btn_Check_Off.svg');

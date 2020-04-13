@@ -34,10 +34,9 @@
             <img src="{{asset('images/iconos/config/S_Btn_nomenc_StandBy.svg')}}" alt="" height="30" width="30">
         </a>
         <div id="switch_list">
-            <a href="#">Elementos de la lista</a>
-            <a href="#">Elementos de la lista</a>
-            <a href="#">Elementos de la lista</a>
-            <a href="#">Elementos de la lista</a>
+            @foreach($links as $item)
+                <a href="{{$item['url']}}">{{$item['title']}}</a>
+            @endforeach
         </div>
         <a href="#" id="boton_charts" data-url="{{url('graficos/Grafico_Ejemplo')}}" class="float-left text-light btnHover" data-icon="S_Btn_Pie" title="Graficos">
             <img src="{{asset('images/iconos/config/S_Btn_Pie_StandBy.svg')}}" alt="" height="30" width="30">

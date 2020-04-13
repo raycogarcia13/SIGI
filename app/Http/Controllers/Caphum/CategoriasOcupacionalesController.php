@@ -37,6 +37,11 @@ class CategoriasOcupacionalesController extends Controller
             'acronimo'=>['placeholder'=>'Abreviatura','label'=>'Acrónimo','rules'=>'required|parent=nombreM','type'=>'acronimo','id'=>"acronimo"],
             'tipo'=>['placeholder'=>'tipo','label'=>'Tipo','rules'=>'required|parent=nombreM','type'=>'tipo','id'=>"tipo"],
         ];
+
+        $links=array(
+            ['url'=>'/caphum/tiposCategoriasOcupacionales','title'=>'Tipos de Categorías']
+        );
+
         return view('crud.listado')->with([
             'base_title'=>'CapHum | Categorias Ocupacionales',
             'header'=>'Categorias Ocupacionales',
@@ -48,6 +53,7 @@ class CategoriasOcupacionalesController extends Controller
             'table_form'=>$edit,
             'create_form'=>$new,
             'table'=>'caphum_categorias_ocupacionales',
+            'links'=>$links,
             'reactivar'=>'/caphum/ocupacionales/reactivar',
             ]);
     }

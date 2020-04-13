@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\View;
 use App\Models\Auditoria;
 use App\Models\Politicas;
 use App\Models\Session;
-use App\Http\Requests\SessionRequest;
 use Laracasts\Flash\Flash;
 use App\Http\Requests\PoliticasContrasenasRequest;
 use App\Models\Modulo;
@@ -97,19 +96,28 @@ class ConfigController extends Controller
  
     public function politicas()
     {
-        $pol=Politicas::all()->first();
-        return view('config.politicas')->with('politicas',$pol);
+        $pol=Politicas::all()->first(); 
+        $ses=Session::all()->first();
+        return view('config.politicas')->with([
+            'politicas'=>$pol,
+            'session'=>$ses,
+            ]);
     }
 
-    public function sesion()
+    public function politicasStore(PoliticasContrasenasRequest $request)
     {
-        $pol=Session::all()->first();
-        return view('config.session')->with('session',$pol);
-    }
+        $dato = Politicas::all()->first();
+        $dato->longitud_minima=$request->longitud_minima;
+        $dato->intentos_fallidos=$request->intentos_fallidos;
+        $dato->notif_vencimiento=$request->notif_vencimiento;
+        $dato->tiempo_validez=$request->tiempo_validez;
+        $dato->mayusculas=(isset($request->mayusculas)?true:false);
+        $dato->numeros=(isset($request->numeros)?true:false);
+        $dato->carac_especiales=(isset($request->carac_especiales)?true:false);
+        
+        
+        $dato->save();
 
-    // public function sessionStore(SessionRequest $request)
-    public function sessionStore(SessionRequest $request)
-    {
         $session = Session::all()->first();
         $session->inactividad=$request->inactividad;
         $session->simultaneo=(isset($request->simultaneo)?true:false);
@@ -131,23 +139,6 @@ class ConfigController extends Controller
                 );
             }
         }
-        $request->session()->flash('status', 'correcto');
-        return redirect(route('sesion'));
-    }
-
-    public function politicasStore(PoliticasContrasenasRequest $request)
-    {
-        $dato = Politicas::all()->first();
-        $dato->longitud_minima=$request->longitud_minima;
-        $dato->intentos_fallidos=$request->intentos_fallidos;
-        $dato->notif_vencimiento=$request->notif_vencimiento;
-        $dato->tiempo_validez=$request->tiempo_validez;
-        $dato->mayusculas=(isset($request->mayusculas)?true:false);
-        $dato->numeros=(isset($request->numeros)?true:false);
-        $dato->carac_especiales=(isset($request->carac_especiales)?true:false);
-        
-        
-        $dato->save();
         $request->session()->flash('status', 'correcto');
         return redirect(route('politicas'));
     }
