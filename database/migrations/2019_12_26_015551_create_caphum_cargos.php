@@ -15,25 +15,22 @@ class CreateCaphumCargos extends Migration
     {
         Schema::create('caphum_cargos', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('area_id');
+            $table->foreign('area_id')->references('id')->on('caphum_areas');
             $table->string('cargo');
-            $table->boolean('jefe_area');
-            $table->double('salario_escala')->nullable();
-            $table->double('perfeccionamiento')->nullable();
-            $table->double('cla')->nullable();
-            $table->double('ac')->nullable();
-            $table->double('gps')->nullable();
-            $table->double('cies')->nullable();
-            $table->double('salario_total')->nullable();
-
-            $table->integer('categoria_oc_id')->nullable();
-            $table->foreign('categoria_oc_id')->references('id')->on('caphum_tipos_categorias_ocupacionales');
-            $table->integer('grupo_escala_id')->nullable();
+            $table->integer('nivel_id');
+            $table->foreign('nivel_id')->references('id')->on('caphum_niveles_preparacion');
+            $table->boolean('jestablec')->nullable();
+            $table->integer('plazas');
+            $table->integer('grupo_escala_id');
             $table->foreign('grupo_escala_id')->references('id')->on('caphum_grupo_escala');
-            
-            $table->integer('establecimiento_id');
-            $table->foreign('establecimiento_id')->references('id')->on('caphum_establecimiento');
-            $table->integer('trabajador_id')->nullable();
-            $table->foreign('trabajador_id')->references('id')->on('caphum_trabajador');
+            $table->integer('categoria_oc_id');
+            $table->foreign('categoria_oc_id')->references('id')->on('caphum_tipos_categorias_ocupacionales');
+            $table->integer('tipo_categoria_oc_id')->nullable();
+            $table->foreign('tipo_categoria_oc_id')->references('id')->on('caphum_tipos_categorias_ocupacionales');
+            $table->boolean('funcionario')->nullable();
+            $table->boolean('designado')->nullable();
+            $table->boolean('peligroso')->nullable();
             $table->timestamps();
         });
     }

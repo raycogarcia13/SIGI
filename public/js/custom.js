@@ -95,9 +95,10 @@ function backDropTransparente(estado) {
         $("#btn-nav-change-status").children('div#b1').removeClass('bars-animate-arrow-top');
         $("#btn-nav-change-status").children('div#b2').removeClass('bars-animate-arrow-middle');
         $("#btn-nav-change-status").children('div#b3').removeClass('bars-animate-arrow-bottom');
-        $("#listas_acceso_button").attr('active', 'no')
-        $(".input-span-select").show()
-        $(".input-select").hide()
+        $("#listas_acceso_button").attr('active', 'no');
+        $(".input-span-select").show();
+        $(".input-select").hide();
+        $("#switch_list").hide();
     });
 }
 

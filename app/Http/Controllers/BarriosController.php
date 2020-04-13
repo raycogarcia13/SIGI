@@ -34,12 +34,12 @@ class BarriosController extends Controller
             'position'=>['edit'=>false,'label'=>'#'],
             'nombre'=>['edit'=>true,'label'=>'Nombre','rules'=>'data-validate-length-range="6"','type'=>'text'],
             'acronimo'=>['edit'=>true,'label'=>'Abreviatura','rules'=>'required','type'=>'text'],
-            'municipio_id'=>['edit'=>true,'label'=>'Municipio','options'=>$muni,'rules'=>'data-validate-length-range="6"','type'=>'select'],
+            'municipios'=>['edit'=>true,'label'=>'Municipio','options'=>$muni,'rules'=>'data-validate-length-range="6"','type'=>'select'],
         ];
         $new=[
             'nombre'=>['placeholder'=>'Nombre','label'=>'Nombre','rules'=>'required','type'=>'text','id'=>"nombreM"],
             'acronimo'=>['placeholder'=>'Abreviatura','label'=>'Acrónimo','rules'=>'required|parent=nombreM','type'=>'acronimo','id'=>"acronimo"],
-            'municipio_id'=>['placeholder'=>'Municipio','label'=>'Municipio','rules'=>'required','type'=>'number','id'=>"nombreM"],
+            'municipios'=>['placeholder'=>'Municipio','label'=>'Municipio','rules'=>'required','type'=>'number','id'=>"nombreM"],
         ];
         return view('crud.listado')->with([
             'base_title'=>'CapHum | Barrios',

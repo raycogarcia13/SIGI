@@ -31,7 +31,7 @@
                     <h3 class="box-title">Plazas por dirección y UEB</h3>
                 </div --->
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-5">
                         <div class="p-0">
                             <fieldset>
                                 <legend>Cumpleaños:</legend>
@@ -54,7 +54,7 @@
                             </fieldset>
                         </div>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-7">
                         <div class="p-0">
                             <fieldset>
                                 <legend>Capacitación:</legend>

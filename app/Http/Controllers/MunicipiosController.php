@@ -34,12 +34,12 @@ class MunicipiosController extends Controller
             'position'=>['edit'=>false,'label'=>'#'],
             'nombre'=>['edit'=>true,'label'=>'Nombre','rules'=>'data-validate-length-range="6"','type'=>'text'],
             'acronimo'=>['edit'=>true,'label'=>'Abreviatura','rules'=>'required','type'=>'text'],
-            'provincia'=>['edit'=>true,'label'=>'Provincia','options'=>$prov, 'rules'=>'data-validate-length-range="6"','type'=>'select'],
+            'provincias'=>['edit'=>true,'label'=>'Provincia','options'=>$prov, 'rules'=>'data-validate-length-range="6"','type'=>'select'],
         ];
         $new=[
             'nombre'=>['placeholder'=>'Nombre','label'=>'Nombre','rules'=>'required','type'=>'text','id'=>"nombreM"],
             'acronimo'=>['placeholder'=>'Abreviatura','label'=>'Acrónimo','rules'=>'required|parent=nombreM','type'=>'acronimo','id'=>"acronimo"],
-            'provincia'=>['placeholder'=>'Provincia','label'=>'Provincia','rules'=>'required','type'=>'text','id'=>"nombreM"],
+            'provincias'=>['placeholder'=>'Provincia','label'=>'Provincia','rules'=>'required','options'=>$prov, 'type'=>'select','id'=>"nombreM"],
         ];
         return view('crud.listado')->with([
             'base_title'=>'CapHum | Municipios',
