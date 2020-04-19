@@ -12,7 +12,7 @@ use App\Models\Caphum\Areas;
 use App\Models\Caphum\NivelesPreparacion;
 use App\Models\Caphum\GruposEscalas;
 use App\Models\Caphum\CategoriasOcupacionales;
-use App\Models\Caphum\TiposCategoariasOcupacionales;
+use App\Models\Caphum\TiposCategoriasOcupacionales;
 
 class CargosController extends Controller
 {
@@ -30,42 +30,60 @@ class CargosController extends Controller
     public function index()
     {
         $areass = Areas::all();
-        $area = [];
-        foreach ($areass as $areas) {
-            $area[$areas->id] = $areas->nombre;
+        $areas = [];
+        foreach ($areass as $area) {
+            $areas[$area->id] = $area->nombre;
         }
 
         $niveless = NivelesPreparacion::all();
-        $nivel = [];
-        foreach ($niveless as $niveles) {
-            $nivel[$niveles->id] = $niveles->nombre;
+        $niveles = [];
+        foreach ($niveless as $nivel) {
+            $niveles[$nivel->id] = $nivel->nombre;
+        }
+
+        $gruposs = GruposEscalas::all();
+        $grupos = [];
+        foreach ($gruposs as $grupo) {
+            $grupos[$grupo->id] = $grupo->nombre;
+        }
+
+        $categoriass = CategoriasOcupacionales::all();
+        $categorias = [];
+        foreach ($categoriass as $categoria) {
+            $categorias[$categoria->id] = $categoria->nombre;
+        }
+
+        $tiposs = TiposCategoriasOcupacionales::all();
+        $tipos = [];
+        foreach ($tiposs as $tipo) {
+            $tipos[$tipo->id] = $tipo->nombre;
         }
 
         $edit=[
-            'area_id'=>['edit'=>true,'label'=>'Área','options'=>$area,'rules'=>'required','type'=>'select'],
+            'area'=>['edit'=>true,'label'=>'Área','options'=>$areas,'rules'=>'required','type'=>'select'],
             'cargo'=>['edit'=>true,'label'=>'Cargo','rules'=>'data-validate-length-range="6"','type'=>'text'],
-            'nivel_id'=>['edit'=>true,'label'=>'Nivel','options'=>$nivel,'rules'=>'required','type'=>'select'],
-            'jestablec'=>['edit'=>true,'label'=>'J Establecimiento','rules'=>'required','type'=>'text'],
+            'nivel'=>['edit'=>true,'label'=>'Nivel','options'=>$niveles,'rules'=>'required','type'=>'select'],
+            'jestablec'=>['edit'=>true,'label'=>'Jefe Estab.','rules'=>'required','type'=>'text'],
             'plazas'=>['edit'=>true,'label'=>'Plazas','rules'=>'required','type'=>'text'],
-            'grupo_escala_id'=>['edit'=>true,'label'=>'Grupo Escala','rules'=>'required','type'=>'select'],
-            'categoria_oc_id'=>['edit'=>true,'label'=>'Categoría Ocupacional','rules'=>'required','type'=>'select'],
-            'tipo_categoria_oc_id'=>['edit'=>true,'label'=>'Tipo Categoría Ocupacional','rules'=>'required','type'=>'select'],
+            'grupos_escala'=>['edit'=>true,'label'=>'Grupo Escala','options'=>$grupos,'rules'=>'required','type'=>'select'],
+            'categoria_oc'=>['edit'=>true,'label'=>'Categoría Ocupacional','options'=>$categorias,'rules'=>'required','type'=>'select'],
+            'tipo_categoria_oc'=>['edit'=>true,'label'=>'Tipo Categoría Ocupacional','options'=>$tipos,'rules'=>'required','type'=>'select'],
             'funcionario'=>['edit'=>true,'label'=>'Funcionario','rules'=>'required','type'=>'text'],
             'designado'=>['edit'=>true,'label'=>'Designado','rules'=>'required','type'=>'text'],
             'peligroso'=>['edit'=>true,'label'=>'Peligroso','rules'=>'required','type'=>'text'],
         ];
         $new=[
-            'area_id'=>['placeholder'=>'Área','label'=>'Área','rules'=>'required','type'=>'text','id'=>"nombreM"],
-            'cargo'=>['placeholder'=>'Abreviatura','label'=>'Cargo','rules'=>'required|parent=nombreM','type'=>'acronimo','id'=>"cargo"],
-            'nivel_id'=>['placeholder'=>'Nivel','label'=>'Nivel','rules'=>'required','type'=>'text','id'=>"nombreM"],
-            'jestablec'=>['placeholder'=>'Jefe Establecimiento','label'=>'Jefe Establecimiento','rules'=>'','type'=>'text','id'=>"nombreM"],
-            'plazas'=>['placeholder'=>'Plazas','label'=>'Plazas','rules'=>'required','type'=>'text','id'=>"nombreM"],
-            'grupo_escala_id'=>['placeholder'=>'Grupo Escala','label'=>'Grupo Escala','rules'=>'required','type'=>'text','id'=>"nombreM"],
-            'categoria_oc_id'=>['placeholder'=>'Categoría Ocupacional','label'=>'Categoría Ocupacional','rules'=>'required','type'=>'text','id'=>"nombreM"],
-            'tipo_categoria_oc_id'=>['placeholder'=>'Tipo Categoría Ocupacional','label'=>'Tipo Categoría Ocupacional','rules'=>'required','type'=>'text','id'=>"nombreM"],
-            'funcionario'=>['placeholder'=>'Funcionario','label'=>'Funcionario','rules'=>'','type'=>'text','id'=>"nombreM"],
-            'designado'=>['placeholder'=>'Designado','label'=>'Designado','rules'=>'','type'=>'text','id'=>"nombreM"],
-            'peligroso'=>['placeholder'=>'Peligroso','label'=>'Peligroso','rules'=>'','type'=>'text','id'=>"nombreM"],
+            'area'=>['placeholder'=>'Área','label'=>'Área','options'=>$areas,'rules'=>'required','type'=>'select','id'=>"nombreM"],
+            'cargo'=>['placeholder'=>'Cargo','label'=>'Cargo','rules'=>'required|parent=nombreM','type'=>'text','id'=>"cargo"],
+            'nivel'=>['placeholder'=>'Nivel','label'=>'Nivel','options'=>$niveles,'rules'=>'required','type'=>'select','id'=>"nombreM"],
+            'jestablec'=>['placeholder'=>'Jefe Estab.','label'=>'Jefe Estab.','rules'=>'','type'=>'checkbox','id'=>"nombreM"],
+            'plazas'=>['placeholder'=>'Plazas','label'=>'Plazas','rules'=>'required','type'=>'number','id'=>"nombreM"],
+            'grupos_escala'=>['placeholder'=>'Grupo Escala','label'=>'Grupo Escala','options'=>$grupos,'rules'=>'required','type'=>'select','id'=>"nombreM"],
+            'categoria_oc'=>['placeholder'=>'Categoría Ocupacional','label'=>'Categoría Ocupacional','options'=>$categorias,'rules'=>'required','type'=>'select','id'=>"nombreM"],
+            'tipo_categoria_oc'=>['placeholder'=>'Tipo Categoría Ocupacional','label'=>'Tipo Categoría Ocupacional','options'=>$tipos,'rules'=>'required','type'=>'select','id'=>"nombreM"],
+            'funcionario'=>['placeholder'=>'Funcionario','label'=>'Funcionario','rules'=>'','type'=>'checkbox','id'=>"nombreM"],
+            'designado'=>['placeholder'=>'Designado','label'=>'Designado','rules'=>'','type'=>'checkbox','id'=>"nombreM"],
+            'peligroso'=>['placeholder'=>'Peligroso','label'=>'Peligroso','rules'=>'','type'=>'checkbox','id'=>"nombreM"],
         ];
 
         //return view('caphum.plantilla.listado')->with([
@@ -81,9 +99,27 @@ class CargosController extends Controller
             'create_form'=>$new,
             'table'=>'caphum_cargos',
             'reactivar'=>'/caphum/cargoss/reactivar',
-            'plantilla'=>'plantilla'
+            'plantilla'=>'plantilla',
+            'tipo'=>'cargos'
             ]
         );
+    }
+
+    public function getJson(Request $request)
+    {
+        $cantidad = ($request->cantidad=='...')?1000:$request->cantidad;
+        $estado = isset($request->estado)?$request->estado:1;
+        // $data = Cargos::all();
+        if($estado==1)
+            $data = ($request->filtro)?
+                    Cargos::orderBy('position','ASC')->where('nombre', 'LIKE', '%' . $request->filtro . '%')->paginate($cantidad):
+                    Cargos::orderBy('position','ASC')->paginate($cantidad);
+        else
+        $data = ($request->filtro)?
+                    Cargos::orderBy('deleted_at','ASC')->where('nombre', 'LIKE', '%' . $request->filtro . '%')->onlyTrashed()->paginate($cantidad):
+                    Cargos::orderBy('deleted_at','ASC')->onlyTrashed()->paginate($cantidad);
+
+        return $data;
     }
 
     /**
@@ -104,30 +140,19 @@ class CargosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if(Cargos::where('nombre',$request->nombre)->count()>0 ||Cargos::where('acronimo',$request->acronimo)->count()>0)
+            return ['success'=>'failed'];
+
+        $last=Cargos::orderBy('position','DESC')->get()->first();
+        $position=$last->position+1;
+        Cargos::create([
+            'nombre'=> $request->nombre,
+            'acronimo'=>$request->acronimo,
+            'position'=>$last->position+1
+        ]);
+        return ['success'=>true];
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -138,8 +163,13 @@ class CargosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data=Cargos::find($id);
+        $data->nombre=$request->nombre;
+        $data->acronimo=$request->acronimo;
+        $data->save();
+        return ['success'=>true,'message'=>'Edición satisfactoria'];
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -149,6 +179,49 @@ class CargosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $all= $request->ids;
+        $deletes=[];
+        $disabled=[];
+        foreach($all as $item)
+        {
+            $d=Cargos::find($item);
+            $this->fixDeletes('Cargos',$d->position);
+            if($d->isUsed())
+            {
+                $disabled[]=$d;
+                $d->delete();
+            }
+            else{
+                $deletes[]=$d;
+                $d->forceDelete();
+            }
+
+        }
+
+        return ['deletes'=>$deletes,'disabled'=>$disabled];
+    }
+
+    public function fixDeletes($tabla,$delPos)
+    {
+        $count=DB::table($tabla)->get()->count();
+        $actual=$delPos;
+        if($actual!=$count)
+        {
+            for($j=$actual+1;$j<=$count;$j++)
+            DB::table($tabla)->where('position',$j)->decrement('position',1);
+        }
+    }
+
+    public function reactivar(Request $request)
+    {
+        foreach($request->ids as $id)
+        {
+            $last=Cargos::orderBy('position','DESC')->get()->first();
+            $position=$last->position+1;
+            Cargos::where('id',$id)->restore();
+            Cargos::where('id',$id)->update(['position'=>$position]);
+        }
+
+        return ['success'=>true];
     }
 }

@@ -54,6 +54,7 @@ class DatabaseSeeder extends Seeder
         $this->call(TallasPrendaSexoSeeder::class);
         $this->call(TallaPersonaVestuarioInstitucionalSeeder::class);
         $this->call(TallaPersonaVestuarioPresenciaSeeder::class);
+        $this->call(CargosSeeder::class);
         // $this->call(::class);
     }
 }

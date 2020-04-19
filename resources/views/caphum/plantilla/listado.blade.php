@@ -59,6 +59,7 @@
     <script src="{{ asset('js/validator/multifield.js') }}"></script>
     <script src="{{asset('vendor/jspdf/jspdf.min.js')}}"></script>
     <script src="{{asset('vendor/jspdf/jspdf.plugin.autotable.js')}}"></script>
+    <script src="{{ asset('js/render_components.js') }}"></script>
     <script>
         var reactivar='{{$reactivar}}';
         var validator = new FormValidator({"events" : ['blur', 'input', 'change']}, document.forms[0]);

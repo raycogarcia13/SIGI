@@ -8,12 +8,19 @@
 
 @section('menuh')
     <div class="mh">
-        <a href="{{Request::url()}}" class="active-link-sidebar f"><div class="mark"></div>{{$header}}</a>
+        <a href="{{Request::url()}}" class="active-link-sidebar f">
+            <div class="mark"></div>
+            {{$header}}
+        </a>
     </div>
 @stop
 
 @section('crear_form')
-    @include('crud.nuevo')
+    @if ($header == 'Cargos' )
+        @include('crud.cargos')
+    @else
+        @include('crud.nuevo')
+    @endif
 @stop
 
 @section('content')
@@ -44,6 +51,7 @@
     <script src="{{ asset('js/validator/multifield.js') }}"></script>
     <script src="{{asset('vendor/jspdf/jspdf.min.js')}}"></script>
     <script src="{{asset('vendor/jspdf/jspdf.plugin.autotable.js')}}"></script>
+
     <script>
         var reactivar='{{$reactivar}}';
         var validator = new FormValidator({"events" : ['blur', 'input', 'change']}, document.forms[0]);
@@ -433,4 +441,7 @@
             loadInlineEditData('{{$data_path}}?cantidad='+cantidadPorPagina+'&estado='+estadoUsuarioSeleccionado+'&filtro='+$("#search_on_table").val());
         }
     </script>
+    @if ($header == 'Cargos' )
+        <script src="{{asset('js/render_components.js')}}"></script>
+    @endif
 @stop

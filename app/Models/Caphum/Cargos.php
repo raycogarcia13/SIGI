@@ -11,8 +11,9 @@ class Cargos extends Model
 
     protected $dates = ['deleted_at'];
     protected $table="caphum_cargos";
-    protected $fillable = ['area_id', 'cargo', 'nivel_id', 'jestablec', 'plazas', 'grupo_escala_id', 'categoria_oc_id', 'tipo_categoria_oc_id', 'funcionario', 'designado', 'peligroso'];
-    //                        area, cargo, nivel, jefe, plazas, grupoescala, salario escala, categoría ocupacional, tipo, funcionario, designado, peligroso
+    protected $fillable = ['area', 'cargo', 'nivel', 'jestablec', 'plazas', 'grupos_escala', 'categoria_oc', 'tipo_categoria_oc', 'funcionario', 'designado', 'peligroso'];
+
+    // area, cargo, nivel, jefe, plazas, grupos escala, salario escala, categoría ocupacional, tipo, funcionario, designado, peligroso
 
     public function area()
     {
@@ -24,17 +25,17 @@ class Cargos extends Model
         return $this->belongsTo('App\Models\Caphum\NivelesPreparacion', 'id');
     }
 
-    public function grupo_escala()
+    public function grupos_escala()
     {
         return $this->belongsTo('App\Models\Caphum\GruposEscala', 'id');
     }
 
-    public function categoria_ocupacional()
+    public function categoria_oc()
     {
         return $this->belongsTo('App\Models\Caphum\CategoriasOcupacionales', 'id');
     }
 
-    public function tipo_categoria_ocupacional_id()
+    public function tipo_categoria_oc()
     {
         return $this->belongsTo('App\Models\Caphum\TiposCategoriasOcupacionales', 'id');
     }

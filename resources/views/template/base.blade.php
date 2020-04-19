@@ -42,7 +42,7 @@
                 </div>
             </div>
             <div class="modal-body" style="padding-top: 5px;" id="contenidoModalEditable">
-                
+
             </div>
             <div class="col-sm-10" style="padding-right: 0px;">
                 <button type="button" class="btn-accept float-sm-right" data-dismiss="modal" style="margin-right: -29px;"></button>
@@ -52,7 +52,7 @@
 </div>
 
 
-    
+
     {{-- Navigation bar --}}
     <nav class="navbar navbar-default navbar-cupet fixed-top shadow-sm" style="height: 55px;">
         <div class="navbar-header">
@@ -77,11 +77,11 @@
 <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
     {{ csrf_field() }}
 </form>
-<script src="{{ asset('js/app.js') }}"></script>
-
 <script>
     var base_path = "{{url('/')}}/";
 </script>
+
+<script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/custom.js') }}"></script>
 <script src="{{ asset('js/custom_modal.js') }}"></script>
 <script>

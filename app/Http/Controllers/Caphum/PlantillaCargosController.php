@@ -39,8 +39,8 @@ class PlantillaCargosController extends Controller
         $links=array(
             ['url'=>'/caphum/categoriasOcupacionales','title'=>'Categorías'],
             ['url'=>'/caphum/nivelesPreparacion','title'=>'Niveles de preparación'],
-            ['url'=>'/caphum/gruposEscala','title'=>'Grupos Escalas']
-            // ['url'=>'/caphum/gruposEscala','title'=>'Cargos']
+            ['url'=>'/caphum/gruposEscala','title'=>'Grupos Escalas'],
+            ['url'=>'/caphum/cargos','title'=>'Cargos']
         );
 
         return view('caphum.plantilla.listado')->with([
