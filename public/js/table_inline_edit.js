@@ -36,29 +36,29 @@ function inlineEditInit() {
         //
     });
 
-    $('.edit-select').each(function() {
+    // $('.edit-select').each(function() {
 
-        var this_element = $(this);
-        var current_value = this_element.attr('edit-current-value');
-        var dataItems = this_element.attr('data');
-        var labelItems = this_element.attr('label').split('|');
+    //     var this_element = $(this);
+    //     var current_value = this_element.attr('edit-current-value');
+    //     var dataItems = this_element.attr('data');
+    //     var labelItems = this_element.attr('label').split('|');
 
-        $(this).html('<div style="display:none;" class="input-select"></div>');
+    //     $(this).html('<div style="display:none;" class="input-select"></div>');
 
-        let id = (this_element.attr('data-id')) ? 'id="' + this_element.attr('data-id') + '"' : ''
+    //     let id = (this_element.attr('data-id')) ? 'id="' + this_element.attr('data-id') + '"' : ''
 
-        $.each(dataItems.split('|'), function(i, value) {
-            var selected = (current_value == value) ? 'selected' : '';
-            var selected_check = (current_value == value) ? base_path + 'images/iconos/config/SVG__CUPET_Btn_Check_On-List.svg' : base_path + 'images/iconos/config/SVG__CUPET_Btn_Check_Off.svg';
-            if (current_value == value)
-                this_element.append('<span class="input-span-select"><img src="' + base_path + 'images/iconos/config/SVG__CUPET_Btn_Desplegar_On-IZQ.svg' + '" alt="" width="20">' + labelItems[i] + '</span>');
-            // SetearInputs
-            this_element.children('.input-select').append("<a href='' data-value='" + value + "' class='" + selected + "'><img src='" + selected_check + "' width='15' align='left'>" + labelItems[i] + "</a>");
-        });
+    //     $.each(dataItems.split('|'), function(i, value) {
+    //         var selected = (current_value == value) ? 'selected' : '';
+    //         var selected_check = (current_value == value) ? base_path + 'images/iconos/config/SVG__CUPET_Btn_Check_On-List.svg' : base_path + 'images/iconos/config/SVG__CUPET_Btn_Check_Off.svg';
+    //         if (current_value == value)
+    //             this_element.append('<span class="input-span-select"><img src="' + base_path + 'images/iconos/config/SVG__CUPET_Btn_Desplegar_On-IZQ.svg' + '" alt="" width="20">' + labelItems[i] + '</span>');
+    //         // SetearInputs
+    //         this_element.children('.input-select').append("<a href='' data-value='" + value + "' class='" + selected + "'><img src='" + selected_check + "' width='15' align='left'>" + labelItems[i] + "</a>");
+    //     });
 
-        this_element.append(`<select style="display: none;" ` + id + ` name="` + this_element.data('name') + `"><option selected value="` + current_value + `">` + current_value + `</option></select>`)
+    //     this_element.append(`<select style="display: none;" ` + id + ` name="` + this_element.data('name') + `"><option selected value="` + current_value + `">` + current_value + `</option></select>`)
 
-    });
+    // });
 
     setInterval(function() {
         var seleccionados = 0;

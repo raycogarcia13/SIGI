@@ -30,7 +30,7 @@
     <div class="float-left divider-actions-table-inline-edit"></div>
 
     <div style="display: inline-flex">
-        <a href="#" id="boton_switch" class="float-left text-light btnHover" data-icon="S_Btn_nomenc" data-tooggle="tooltip" data-placement="top" title="Navegar" data-status="off">
+        <a href="#" id="boton_switch" class="float-left text-light btnHover" data-icon="S_Btn_nomenc" data-tooggle="tooltip" data-placement="top" title="Dependencias" data-status="off">
             <img src="{{asset('images/iconos/config/S_Btn_nomenc_StandBy.svg')}}" alt="" height="30" width="30">
         </a>
         <div id="switch_list">

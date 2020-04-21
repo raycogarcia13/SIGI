@@ -23,20 +23,15 @@ class MotivosBajasController extends Controller
      */
     public function index()
     {
-        // $todos=MotivosBajas::all();
-        // $selct=[];
-        // foreach($todos as $item)
-        //     $selct[$item->id]=$item->nombre;
-
         $edit=[
             'position'=>['edit'=>false,'label'=>'#'],
             'nombre'=>['edit'=>true,'label'=>'Nombre','rules'=>'data-validate-length-range="6"','type'=>'text'],
             'acronimo'=>['edit'=>true,'label'=>'Abreviatura','rules'=>'required','type'=>'text'],
-            // 'id'=>['edit'=>true,'label'=>'Select',"options"=>$selct,'rules'=>'required','type'=>'select']
         ];
         $new=[
             'nombre'=>['placeholder'=>'Nombre','label'=>'Nombre','rules'=>'required','type'=>'text','id'=>"nombreM"],
-            'acronimo'=>['placeholder'=>'Abreviatura','label'=>'Acrónimo','rules'=>'required|parent=nombreM','type'=>'acronimo','id'=>"acronimo"],
+            'acronimo'=>['placeholder'=>'Abreviatura','label'=>'Acrónimo','rules'=>'required|parent=nombreM','type'=>'acronimo','id'=>"acronimo"]
+
         ];
         return view('crud.listado')->with([
             'base_title'=>'CapHum | Motivos de las Bajas',

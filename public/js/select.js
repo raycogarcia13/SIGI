@@ -58,3 +58,48 @@ $('.input-select a').off().on('click', function() {
     backDropTransparente('eliminar')
     return false;
 });
+this_element.addClass('selected');
+this_element.children('img').attr('src', base_path + 'images/iconos/config/SVG__CUPET_Btn_Check_On-List.svg');
+this_element_parent_td.children('.input-span-select').fadeIn('fast');
+backDropTransparente('eliminar')
+return false;
+});
+
+$('.edit-check').each(function() {
+
+    let thisObject = $(this)
+
+    let id = (thisObject.data('id')) ? ` id="` + thisObject.data('id') + `"` : ``
+
+    let name = (thisObject.data('name')) ? ` name="` + thisObject.data('id') + `"` : ``
+
+    let checked = (thisObject.data('checked') == 'on') ? `checked="checked"` : ``
+
+    let label = thisObject.data('label')
+
+    let icon = (thisObject.data('checked') == 'on') ? `<img src="` + iconCheckOn + `" width="15" style="margin-right: 7px;">` + label : `<img src="` + iconCheckOff + `" width="15" style="margin-right: 7px;">` + label
+
+    thisObject.append(`<div class="button">` + icon + `</div>`)
+
+    thisObject.append(`<input style="display: none;" type="checkbox" ` + name + ` ` + id + ` ` + checked + ` >`)
+
+    let button = thisObject.children('.button')
+
+    button.off().on('click', function() {
+
+        let localButton = $(this)
+
+        if (thisObject.data('checked') == 'on') {
+            thisObject.data('checked', 'off')
+            thisObject.children('input').removeAttr('checked')
+            localButton.html(`<img src="` + iconCheckOff + `" width="15" style="margin-right: 7px;">` + label)
+        } else {
+            thisObject.data('checked', 'on')
+            thisObject.children('input').attr('checked', 'checked')
+            localButton.html(`<img src="` + iconCheckOn + `" width="15" style="margin-right: 7px;">` + label)
+        }
+
+        return false
+    })
+
+})
