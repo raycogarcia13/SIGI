@@ -63,14 +63,14 @@ class CargosController extends Controller
             'area'=>['edit'=>true,'label'=>'Área','options'=>$areas,'rules'=>'required','type'=>'select'],
             'cargo'=>['edit'=>true,'label'=>'Cargo','rules'=>'data-validate-length-range="6"','type'=>'text'],
             'nivel'=>['edit'=>true,'label'=>'Nivel','options'=>$niveles,'rules'=>'required','type'=>'select'],
-            'jestablec'=>['edit'=>true,'label'=>'Jefe Estab.','rules'=>'required','type'=>'text'],
+            'jestablec'=>['edit'=>true,'label'=>'Jefe Estab.','rules'=>'required','type'=>'checkbox'],
             'plazas'=>['edit'=>true,'label'=>'Plazas','rules'=>'required','type'=>'text'],
             'grupos_escala'=>['edit'=>true,'label'=>'Grupo Escala','options'=>$grupos,'rules'=>'required','type'=>'select'],
             'categoria_oc'=>['edit'=>true,'label'=>'Categoría Ocupacional','options'=>$categorias,'rules'=>'required','type'=>'select'],
             'tipo_categoria_oc'=>['edit'=>true,'label'=>'Tipo Categoría Ocupacional','options'=>$tipos,'rules'=>'required','type'=>'select'],
-            'funcionario'=>['edit'=>true,'label'=>'Funcionario','rules'=>'required','type'=>'text'],
-            'designado'=>['edit'=>true,'label'=>'Designado','rules'=>'required','type'=>'text'],
-            'peligroso'=>['edit'=>true,'label'=>'Peligroso','rules'=>'required','type'=>'text'],
+            'funcionario'=>['edit'=>true,'label'=>'Funcionario','rules'=>'required','type'=>'checkbox'],
+            'designado'=>['edit'=>true,'label'=>'Designado','rules'=>'required','type'=>'checkbox'],
+            'peligroso'=>['edit'=>true,'label'=>'Peligroso','rules'=>'required','type'=>'checkbox'],
         ];
         $new=[
             'area'=>['placeholder'=>'Área','label'=>'Área','options'=>$areas,'rules'=>'required','type'=>'select','id'=>"nombreM"],
