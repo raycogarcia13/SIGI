@@ -1,6 +1,6 @@
 @extends('template.base')
 
-@section('title') Config | Empresa @stop
+@section('title') Capital Humano | Inicio @stop
 
 @section('styles')
 {{--    Styles here--}}
@@ -148,7 +148,6 @@
 <script src='{{ url("js/select.js") }}'></script>
 
 <script>
-
     var randomScalingFactor = function() {
         return Math.round(Math.random() * 100);
     };

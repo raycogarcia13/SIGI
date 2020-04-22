@@ -73,17 +73,17 @@ class CargosController extends Controller
             'peligroso'=>['edit'=>true,'label'=>'Peligroso','rules'=>'required','type'=>'checkbox'],
         ];
         $new=[
-            'area'=>['placeholder'=>'Área','label'=>'Área','options'=>$areas,'rules'=>'required','type'=>'select','id'=>"nombreM"],
+            'area'=>['placeholder'=>'Área','label'=>'Área','options'=>$areas,'rules'=>'required','type'=>'select','id'=>"areas"],
             'cargo'=>['placeholder'=>'Cargo','label'=>'Cargo','rules'=>'required|parent=nombreM','type'=>'text','id'=>"cargo"],
-            'nivel'=>['placeholder'=>'Nivel','label'=>'Nivel','options'=>$niveles,'rules'=>'required','type'=>'select','id'=>"nombreM"],
-            'jestablec'=>['placeholder'=>'Jefe Estab.','label'=>'Jefe Estab.','rules'=>'','type'=>'checkbox','id'=>"nombreM"],
-            'plazas'=>['placeholder'=>'Plazas','label'=>'Plazas','rules'=>'required','type'=>'number','id'=>"nombreM"],
+            'nivel'=>['placeholder'=>'Nivel','label'=>'Nivel','options'=>$niveles,'rules'=>'required','type'=>'select','id'=>"nivel"],
+            'jestablec'=>['placeholder'=>'Jefe Estab.','label'=>'Jefe Estab.','rules'=>'','type'=>'checkbox','id'=>"jestablec"],
+            'plazas'=>['placeholder'=>'Plazas','label'=>'Plazas','rules'=>'required','type'=>'number','id'=>"plazas"],
             'grupos_escala'=>['placeholder'=>'Grupo Escala','label'=>'Grupo Escala','options'=>$grupos,'rules'=>'required','type'=>'select','id'=>"nombreM"],
-            'categoria_oc'=>['placeholder'=>'Categoría Ocupacional','label'=>'Categoría Ocupacional','options'=>$categorias,'rules'=>'required','type'=>'select','id'=>"nombreM"],
-            'tipo_categoria_oc'=>['placeholder'=>'Tipo Categoría Ocupacional','label'=>'Tipo Categoría Ocupacional','options'=>$tipos,'rules'=>'required','type'=>'select','id'=>"nombreM"],
-            'funcionario'=>['placeholder'=>'Funcionario','label'=>'Funcionario','rules'=>'','type'=>'checkbox','id'=>"nombreM"],
-            'designado'=>['placeholder'=>'Designado','label'=>'Designado','rules'=>'','type'=>'checkbox','id'=>"nombreM"],
-            'peligroso'=>['placeholder'=>'Peligroso','label'=>'Peligroso','rules'=>'','type'=>'checkbox','id'=>"nombreM"],
+            'categoria_oc'=>['placeholder'=>'Categoría Ocupacional','label'=>'Categoría Ocupacional','options'=>$categorias,'rules'=>'required','type'=>'select','id'=>"categoria_oc"],
+            'tipo_categoria_oc'=>['placeholder'=>'Tipo Categoría Ocupacional','label'=>'Tipo Categoría Ocupacional','options'=>$tipos,'rules'=>'required','type'=>'select','id'=>"tipo_categoria"],
+            'funcionario'=>['placeholder'=>'Funcionario','label'=>'Funcionario','rules'=>'','type'=>'checkbox','id'=>"funcionario"],
+            'designado'=>['placeholder'=>'Designado','label'=>'Designado','rules'=>'','type'=>'checkbox','id'=>"desigando"],
+            'peligroso'=>['placeholder'=>'Peligroso','label'=>'Peligroso','rules'=>'','type'=>'checkbox','id'=>"peligroso"],
         ];
 
         //return view('caphum.plantilla.listado')->with([

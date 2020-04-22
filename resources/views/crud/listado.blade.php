@@ -16,11 +16,7 @@
 @stop
 
 @section('crear_form')
-    @if ($header == 'Cargos' )
-        @include('crud.cargos')
-    @else
         @include('crud.nuevo')
-    @endif
 @stop
 
 @section('content')
@@ -46,6 +42,7 @@
 @stop
 
 @section('scripts')
+    <script src="{{ asset('js/render_components.js') }}"></script>
     <script src="{{ asset('js/table_inline_edit.js') }}"></script>
     <script src="{{ asset('js/validator/validator.js') }}"></script>
     <script src="{{ asset('js/validator/multifield.js') }}"></script>
@@ -53,6 +50,7 @@
     <script src="{{asset('vendor/jspdf/jspdf.plugin.autotable.js')}}"></script>
 
     <script>
+        renderComponents();
         var reactivar='{{$reactivar}}';
         var validator = new FormValidator({"events" : ['blur', 'input', 'change']}, document.forms[0]);
         let datosEdit={!!json_encode($table_form)!!};
@@ -441,7 +439,4 @@
             loadInlineEditData('{{$data_path}}?cantidad='+cantidadPorPagina+'&estado='+estadoUsuarioSeleccionado+'&filtro='+$("#search_on_table").val());
         }
     </script>
-    @if ($header == 'Cargos' )
-        <script src="{{asset('js/render_components.js')}}"></script>
-    @endif
 @stop
