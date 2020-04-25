@@ -64,9 +64,6 @@ function renderComponents() {
 
     })
 
-    $('.aclick').click(function() {
-
-    })
 
     $('.edit-check').each(function() {
 

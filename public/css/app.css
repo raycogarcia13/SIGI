@@ -14792,13 +14792,6 @@ pre>code {
     color: red
 }
 
-.button {
-    cursor: pointer;
-    padding: 8px;
-    background: #fff;
-    position: relative
-}
-
 #switch_list {
     display: none;
     position: absolute;
@@ -29021,12 +29014,6 @@ pre>code {
     text-align: left!important;
     color: red
 }
-.button {
-    cursor: pointer;
-    padding: 8px;
-    background: #fff;
-    position: relative
-}
 #switch_list {
     display: none;
     position: absolute;
@@ -42873,12 +42860,7 @@ pre>code {
     text-align: left!important;
     color: red
 }
-.button {
-    cursor: pointer;
-    padding: 8px;
-    background: #fff;
-    position: relative
-}
+
 #switch_list {
     display: none;
     position: absolute;
@@ -56745,12 +56727,7 @@ pre>code {
     text-align: left!important;
     color: red
 }
-.button {
-    cursor: pointer;
-    padding: 8px;
-    background: #fff;
-    position: relative
-}
+
 #switch_list {
     display: none;
     position: absolute;

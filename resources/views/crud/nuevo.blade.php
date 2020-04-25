@@ -4,19 +4,19 @@
         @foreach($create_form as $key => $item)
         <div class="col-md field">
             @if($item['type']=='select')
-                @php
-                    $datas=[];
-                    foreach($item['options'] as $k=>$val)
-                    {
-                        $datas[]=$val.":".$k;
-                    }
-                @endphp
-                <div class="edit-select" label="{{$item['placeholder']}}" data-name="{{$key}}" data-id="{{$item['id']}}" data-i="{{implode('|',$datas)}}"></div>
+                <div class="form-group" style="margin:5px">
+                    <select class="col-md-12" id="{{$item['id']}}" class="form-control" name="">
+                        <option value="NULL" style="background-color: #ccc">Escoja: {{$item['label']}}</option>
+                        @foreach($item['options'] as $k=>$val)
+                            <option value="{{$k}}">{{$val}}</option>
+                        @endforeach
+                    </select>
+                </div>
             @elseif($item['type']=='checkbox')
             <div
                     class="edit-check"
                     data-name="{{$key}}"
-                    data-label="{{$key}}"
+                    data-label="{{$item['label']}}"
                     data-id="{{$item['id']}}"
                     data-checked="off">
             </div>
