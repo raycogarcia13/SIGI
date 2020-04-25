@@ -1,4 +1,16 @@
 //Table inline edit
+function changeF(item) {
+    // console.log($('#'+item).value());
+    let title=""
+    $.each($('#'+item).children('option'),function(i,value){
+        if($(value).prop('selected'))
+            title=$(value).text()
+    });
+    // console.log(title);
+    let el=$('#'+item).parent().children('span').html(title);
+    // console.log(el);
+}
+
 function inlineEditInit() {
 
     var cambio_id = '';
@@ -25,7 +37,19 @@ function inlineEditInit() {
                 this_element.html('<input style="display: block;" type="' + type + '"  class="input-checkbox" value="' + this_element.attr('edit-current-value') + '" >');
                 //this_element.append('<span class="input-span-select">' + this_element.attr('edit-current-value') + '</span>');
             }
-
+        }
+        if (type == 'select') {
+            let id=$(this).attr('data-name');
+            let options = $(this).attr('options').split('|');
+            let select = '<select onchange="changeF(id)" class="input-text" style="display:none" id="' + $(this).attr('data-name') + '" name="' + $(this).attr('data-name') + '">';
+            for (let i = 0; i < options.length; i++) {
+                let ds = options[i].split(':');
+                let sel = (ds[0] == $(this).attr('edit-current-value')) ? 'selected' : '';
+                select += '<option ' + sel + ' value="' + ds[1] + '">' + ds[0] + '</option>';
+            }
+            select += '</select>';
+            this_element.html(select);
+            this_element.append('<span class="input-span-text">' + this_element.attr('edit-current-value') + '</span>');
         }
 
 
@@ -239,6 +263,7 @@ function inlineEditInit() {
 
         $('.input-select').off().on('change', function() {
             var this_item = $(this);
+            alert('si');
             this_item.parent('td').children('.input-span-select').text(this_item.val());
         });
 

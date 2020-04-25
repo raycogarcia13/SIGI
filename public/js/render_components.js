@@ -17,7 +17,7 @@ function renderComponents() {
 
         object.append(`<div class="input-select"></div>`)
         object.append(currentValue)
-        object.append(`<select ` + id + ` style="display:show;" name="` + object.data('name') + `"></select>`)
+        object.append(`<select ` + id + ` style="display:none;" name="` + object.data('name') + `"></select>`)
 
         let dataItems = object.data('i')
         let inputSelect = object.children('.input-select')
