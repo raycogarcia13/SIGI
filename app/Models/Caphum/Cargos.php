@@ -11,7 +11,7 @@ class Cargos extends Model
 
     protected $dates = ['deleted_at'];
     protected $table="caphum_cargos";
-    protected $fillable = ['area', 'cargo', 'nivel', 'jestablec', 'plazas', 'grupos_escala', 'categoria_oc', 'tipo_categoria_oc', 'funcionario', 'designado', 'peligroso'];
+    protected $fillable = ['area', 'cargo', 'nivel', 'jestablec', 'plazas', 'grupos_escala', 'categoria_oc', 'tipo_categoria_oc', 'funcionario', 'designado', 'peligroso', 'position', 'activo'];
 
     // area, cargo, nivel, jefe, plazas, grupos escala, salario escala, categoría ocupacional, tipo, funcionario, designado, peligroso
 

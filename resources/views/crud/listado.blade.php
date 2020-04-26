@@ -94,7 +94,7 @@
                         else
                             bhtml+= '<td>'+eval('value.'+keys[i])+'</td>\n';
                     }
-                    bhtml+=   '<td class="edit-options">\n'+
+                    bhtml+='<td class="edit-options">\n'+
                         '<a href="#" class="edit-element float-right" data-id="'+value.id+'"><img src="{{asset('images/iconos/config/SVG__CUPET_Btn_Config.svg')}}" alt="Editar" width="35" height="35"></a>\n'+
                         '</td>\n'+
                         '</tr>';

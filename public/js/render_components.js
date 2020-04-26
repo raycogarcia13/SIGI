@@ -1,7 +1,8 @@
 function renderComponents() {
 
     const iconCheckOff = base_path + "images/iconos/config/S_Btn_selectRow_StandBy.svg"
-    const iconCheckOn = base_path + "images/iconos/config/S_Btn_selectRow-InActiveDark_On.svg"
+    // const iconCheckOn = base_path + "images/iconos/config/S_Btn_selectRow-InActiveDark_On.svg"
+    const iconCheckOn = base_path + "images/iconos/config/S_Btn_selectRow-Active_On.svg"
     const desplegar = base_path + "images/iconos/config/SVG__CUPET_Btn_Desplegar_On-IZQ.svg"
     const desplegarOff = base_path + "images/iconos/config/SVG__CUPET_Btn_Desplegar_Off-IZQ.svg"
 

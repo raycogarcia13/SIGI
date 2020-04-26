@@ -11,23 +11,34 @@
                         $datas[]=$val.":".$k;
                     }
                 @endphp
-                <div class="edit-select" label="{{$item['placeholder']}}" data-name="{{$key}}" data-id="{{$item['id']}}" data-i="{{implode('|',$datas)}}"></div>
+                <div
+                    class="edit-select"
+                    label="{{$item['placeholder']}}"
+                    data-name="{{$key}}"
+                    data-id="{{$item['id']}}"
+                    data-i="{{implode('|',$datas)}}">
+                 </div>
             @elseif($item['type']=='checkbox')
-            <div
+                <div
                     class="edit-check"
                     data-name="{{$key}}"
                     data-label="{{$key}}"
                     data-id="{{$item['id']}}"
                     data-checked="off">
-            </div>
+                </div>
             @else
-                <input type="{{$item['type']}}" name="{{$key}}" style="margin-top: 2px;height: 27px;padding-right: 3px;" placeholder="{{$item['placeholder']}}"  id="{{$item['id']}}"
-                    @foreach(explode('|',$item['rules']) as $item)
-                        {{$item}}
-                    @endforeach
+                <input
+                    type="{{$item['type']}}"
+                    name="{{$key}}"
+                    style="margin-top: 2px;height: 27px;padding-right: 3px;"
+                    placeholder="{{$item['placeholder']}}"
+                    id="{{$item['id']}}"
+                        @foreach(explode('|',$item['rules']) as $item)
+                            {{$item}}
+                        @endforeach
                 >
             @endif
-        </div>   
+        </div>
         @endforeach
         <div class="col-md-2">
              <a href="#" id="cancelarCrearForm" class="cancelar-30x30"></a>

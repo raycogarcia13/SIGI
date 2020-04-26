@@ -171,8 +171,8 @@ function inlineEditInit() {
         $('.cancelar-edicion').off().on('click', function() {
             var this_item = $(this);
             var parent_td = this_item.parent('td').parent('tr').children('td');
-            parent_td.children('input').attr('disabled', '').hide();
-            parent_td.children('.input-select').attr('disabled', '').hide();
+            //parent_td.children('input').attr('disabled', '').hide();
+            //parent_td.children('.input-select').attr('disabled', '').hide();
 
 
             $('.input-span-text').each(function() {
@@ -195,8 +195,8 @@ function inlineEditInit() {
             var update_method = 'PUT';
             var token = this_item.parent('td').parent('tr').parent('tbody').attr('token');
 
-            parent_td.children('input').attr('disabled', '').hide();
-            parent_td.children('.input-select').hide();
+            //parent_td.children('input').attr('disabled', '').hide();
+            //parent_td.children('.input-select').hide();
 
             $('.input-text').each(function() {
                 $(this).parent('td').attr('edit-current-value', $(this).val());
@@ -389,8 +389,8 @@ function inlineEditInit() {
         var parent_tr = this_item.parent('td').parent('tr');
         var parent_first_edit = parent_tr.children('.fist-edit');
 
-        $('.edit-input').children('input').attr('disabled', 'disabled').hide();
-        $('.edit-select').children('select').attr('disabled', 'disabled').hide();
+        //$('.edit-input').children('input').attr('disabled', 'disabled').hide();
+        //$('.edit-select').children('select').attr('disabled', 'disabled').hide();
         $('.input-span-select').fadeIn('fast');
         $('.input-span-text').fadeIn('fast');
 

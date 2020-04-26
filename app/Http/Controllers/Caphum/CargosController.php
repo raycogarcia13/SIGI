@@ -112,11 +112,11 @@ class CargosController extends Controller
         // $data = Cargos::all();
         if($estado==1)
             $data = ($request->filtro)?
-                    Cargos::orderBy('position','ASC')->where('nombre', 'LIKE', '%' . $request->filtro . '%')->paginate($cantidad):
+                    Cargos::orderBy('position','ASC')->where('cargo', 'LIKE', '%' . $request->filtro . '%')->paginate($cantidad):
                     Cargos::orderBy('position','ASC')->paginate($cantidad);
         else
         $data = ($request->filtro)?
-                    Cargos::orderBy('deleted_at','ASC')->where('nombre', 'LIKE', '%' . $request->filtro . '%')->onlyTrashed()->paginate($cantidad):
+                    Cargos::orderBy('deleted_at','ASC')->where('cargo', 'LIKE', '%' . $request->filtro . '%')->onlyTrashed()->paginate($cantidad):
                     Cargos::orderBy('deleted_at','ASC')->onlyTrashed()->paginate($cantidad);
 
         return $data;
@@ -140,15 +140,26 @@ class CargosController extends Controller
      */
     public function store(Request $request)
     {
-        if(Cargos::where('nombre',$request->nombre)->count()>0 ||Cargos::where('acronimo',$request->acronimo)->count()>0)
+        if(Cargos::where('cargo',$request->cargo)->count()>0)
             return ['success'=>'failed'];
 
         $last=Cargos::orderBy('position','DESC')->get()->first();
         $position=$last->position+1;
         Cargos::create([
-            'nombre'=> $request->nombre,
-            'acronimo'=>$request->acronimo,
-            'position'=>$last->position+1
+            'cargo'=> $request->cargo,
+            'area'=>$request->area,
+            'cargo'=>$request->cargo,
+            'nivel'=>$request->nivel,
+            'jestablec'=>$request->jestablec,
+            'plazas'=>$request->plazas,
+            'grupos_escala'=>$request->grupos_escala,
+            'categoria_oc'=>$request->categoria_oc,
+            'tipo_categoria_oc'=>$request->tipo_categoria_oc,
+            'funcionario'=>$request->funcionario,
+            'designado'=>$request->designado,
+            'peligroso'=>$request->peligroso,
+            'position'=>$last->position+1,
+            'activo'=>1
         ]);
         return ['success'=>true];
     }
@@ -164,8 +175,50 @@ class CargosController extends Controller
     public function update(Request $request, $id)
     {
         $data=Cargos::find($id);
-        $data->nombre=$request->nombre;
-        $data->acronimo=$request->acronimo;
+        $data->cargo=$request->cargo;
+        $data->area=$request->area;
+        $data->cargo=$request->cargo;
+        $data->nivel=$request->nivel;
+        if ($request->jestablec)
+        {
+            $data->jestablec = True;
+        }
+        else
+        {
+            $data->jestablec = False;
+        }
+
+        $data->plazas=$request->plazas;
+        $data->grupos_escala=$request->grupos_escala;
+        $data->categoria_oc=$request->categoria_oc;
+        $data->tipo_categoria_oc=$request->tipo_categoria_oc;
+        if ($request->funcionario)
+        {
+            $data->funcionario = True;
+        }
+        else
+        {
+            $data->funcionario = False;
+        }
+        // $data->funcionario=$request->funcionario;
+        if ($request->designado)
+        {
+            $data->designado = True;
+        }
+        else
+        {
+            $data->designado = False;
+        }
+        //$data->designado=$request->designado;
+        if ($request->peligroso)
+        {
+            $data->peligroso = True;
+        }
+        else
+        {
+            $data->peligroso = False;
+        }
+        // $data->peligroso=$request->peligroso;
         $data->save();
         return ['success'=>true,'message'=>'Edición satisfactoria'];
     }
