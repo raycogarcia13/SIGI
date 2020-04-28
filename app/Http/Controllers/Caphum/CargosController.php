@@ -82,7 +82,7 @@ class CargosController extends Controller
             'categoria_oc'=>['placeholder'=>'Categoría Ocupacional','label'=>'Categoría Ocupacional','options'=>$categorias,'rules'=>'required','type'=>'select','id'=>"categoria_oc"],
             'tipo_categoria_oc'=>['placeholder'=>'Tipo Categoría Ocupacional','label'=>'Tipo Categoría Ocupacional','options'=>$tipos,'rules'=>'required','type'=>'select','id'=>"tipo_categoria"],
             'funcionario'=>['placeholder'=>'Funcionario','label'=>'Funcionario','rules'=>'','type'=>'checkbox','id'=>"funcionario"],
-            'designado'=>['placeholder'=>'Designado','label'=>'Designado','rules'=>'','type'=>'checkbox','id'=>"desigando"],
+            'designado'=>['placeholder'=>'Designado','label'=>'Designado','rules'=>'','type'=>'checkbox','id'=>"designado"],
             'peligroso'=>['placeholder'=>'Peligroso','label'=>'Peligroso','rules'=>'','type'=>'checkbox','id'=>"peligroso"],
         ];
 
@@ -174,51 +174,20 @@ class CargosController extends Controller
      */
     public function update(Request $request, $id)
     {
+        print_r($request);
         $data=Cargos::find($id);
         $data->cargo=$request->cargo;
         $data->area=$request->area;
         $data->cargo=$request->cargo;
         $data->nivel=$request->nivel;
-        if ($request->jestablec)
-        {
-            $data->jestablec = True;
-        }
-        else
-        {
-            $data->jestablec = False;
-        }
-
+        $data->jestablec=$request->jestablec;
         $data->plazas=$request->plazas;
         $data->grupos_escala=$request->grupos_escala;
         $data->categoria_oc=$request->categoria_oc;
         $data->tipo_categoria_oc=$request->tipo_categoria_oc;
-        if ($request->funcionario)
-        {
-            $data->funcionario = True;
-        }
-        else
-        {
-            $data->funcionario = False;
-        }
-        // $data->funcionario=$request->funcionario;
-        if ($request->designado)
-        {
-            $data->designado = True;
-        }
-        else
-        {
-            $data->designado = False;
-        }
-        //$data->designado=$request->designado;
-        if ($request->peligroso)
-        {
-            $data->peligroso = True;
-        }
-        else
-        {
-            $data->peligroso = False;
-        }
-        // $data->peligroso=$request->peligroso;
+        $data->funcionario=$request->funcionario;
+        $data->designado=$request->designado;
+        $data->peligroso=$request->peligroso;
         $data->save();
         return ['success'=>true,'message'=>'Edición satisfactoria'];
     }
@@ -230,7 +199,7 @@ class CargosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
         $all= $request->ids;
         $deletes=[];
@@ -238,7 +207,7 @@ class CargosController extends Controller
         foreach($all as $item)
         {
             $d=Cargos::find($item);
-            $this->fixDeletes('Cargos',$d->position);
+            $this->fixDeletes('caphum_cargos',$d->position);
             if($d->isUsed())
             {
                 $disabled[]=$d;

@@ -4,38 +4,27 @@
         @foreach($create_form as $key => $item)
         <div class="col-md field">
             @if($item['type']=='select')
-                @php
-                    $datas=[];
-                    foreach($item['options'] as $k=>$val)
-                    {
-                        $datas[]=$val.":".$k;
-                    }
-                @endphp
-                <div
-                    class="edit-select"
-                    label="{{$item['placeholder']}}"
-                    data-name="{{$key}}"
-                    data-id="{{$item['id']}}"
-                    data-i="{{implode('|',$datas)}}">
-                 </div>
+                <div class="form-group" style="margin:5px">
+                    <select class="col-md-12" id="{{$item['id']}}" class="form-control" name="{{$key}}">
+                        <option value="" style="background-color: #ccc">Escoja: {{$item['label']}}</option>
+                        @foreach($item['options'] as $k=>$val)
+                            <option value="{{$k}}">{{$val}}</option>
+                        @endforeach
+                    </select>
+                </div>
             @elseif($item['type']=='checkbox')
-                <div
+            <div
                     class="edit-check"
                     data-name="{{$key}}"
-                    data-label="{{$key}}"
+                    data-label="{{$item['label']}}"
                     data-id="{{$item['id']}}"
                     data-checked="off">
-                </div>
+            </div>
             @else
-                <input
-                    type="{{$item['type']}}"
-                    name="{{$key}}"
-                    style="margin-top: 2px;height: 27px;padding-right: 3px;"
-                    placeholder="{{$item['placeholder']}}"
-                    id="{{$item['id']}}"
-                        @foreach(explode('|',$item['rules']) as $item)
-                            {{$item}}
-                        @endforeach
+                <input type="{{$item['type']}}" name="{{$key}}" style="margin-top: 2px;height: 27px;padding-right: 3px;" placeholder="{{$item['placeholder']}}"  id="{{$item['id']}}"
+                    @foreach(explode('|',$item['rules']) as $item)
+                        {{$item}}
+                    @endforeach
                 >
             @endif
         </div>

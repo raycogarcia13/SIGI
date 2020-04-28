@@ -81,14 +81,22 @@
                         let fist=i;
                         if(values[i]['edit']==true)
                         {
+                            let actual=value[keys[i]];
                             let fist=(i==1)?'fist-edit':'';
                             if(values[i]['type']!='select')
                                 bhtml+='<td class="edit-input" type-row="'+values[i]["type"]+'" '+fist+' data-name="'+keys[i]+'" edit-current-value="'+eval('value.'+keys[i])+'"></td>\n';
                             else if(values[i]['type']=='select')
                             {
-                                let dataS=Object.keys(values[i]['options']).join('|');
-                                let labelS=Object.values(values[i]['options']).join('|');
-                                bhtml+='<td class="edit-select '+fist+'" data="'+dataS+'" label="'+labelS+'" data-name="'+keys[i]+'" edit-current-value="'+eval('value.'+keys[i])+'"></td>\n';
+                                let dataS=Object.keys(values[i]['options']);
+                                let labelS=Object.values(values[i]['options']);
+                                let dataSelect=[];
+                                for(let j=0;j<dataS.length;j++){
+                                    dataSelect.push(labelS[j]+':'+dataS[j]);
+                                    if(actual==dataS[j])
+                                        actual=labelS[j];
+                                }
+                                dataSelect=dataSelect.join('|');
+                                bhtml+='<td class="edit-input" options="'+dataSelect+'" type-row="'+values[i]["type"]+'" '+fist+' data-name="'+keys[i]+'" edit-current-value="'+actual+'"></td>\n';
                             }
                         }
                         else
@@ -100,6 +108,7 @@
                         '</tr>';
                     $("#inline_edit_data").append(bhtml);
                 });
+                renderComponents();
 
                 setBasicClickEvents()
 
