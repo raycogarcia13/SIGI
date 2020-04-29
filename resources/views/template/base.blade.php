@@ -90,6 +90,6 @@
     })
 </script>
 @yield('scripts')
-
+@yield('otros_scripts')
 </body>
 </html>

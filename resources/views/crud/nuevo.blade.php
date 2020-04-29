@@ -35,3 +35,7 @@
         </div>
     </div>
 </form>
+
+@section('otros_scripts')
+    <script src="{{ asset('js/ocultar_typo_categoria.js') }}"></script>
+@endsection
