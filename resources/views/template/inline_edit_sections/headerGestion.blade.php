@@ -38,7 +38,7 @@
                 <a href="{{$item['url']}}">{{$item['title']}}</a>
             @endforeach
         </div>
-        <a href="#" id="boton_charts" data-url="{{url('graficos/Grafico_Ejemplo')}}" class="float-left text-light btnHover" data-icon="S_Btn_Pie" title="Graficos">
+        <a href="#" id="boton_charts" data-url="@if(strpos($header, 'Plantilla') !== false){{ url('graficos_plantilla/') }}@else{{ url('graficos/Grafico_Ejemplo') }}@endif" class="float-left text-light btnHover" data-icon="S_Btn_Pie" title="Gráficos">
             <img src="{{asset('images/iconos/config/S_Btn_Pie_StandBy.svg')}}" alt="" height="30" width="30">
         </a>
         <div class="float-left divider-actions-table-inline-edit"></div>

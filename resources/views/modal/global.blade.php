@@ -7,7 +7,7 @@
                 </div>
             </div>
             <div class="modal-body" style="padding-top: 5px;" id="contenidoModalEditable">
-                
+
             </div>
             <div class="col-sm-10" style="padding-right: 0px;">
                 <button type="button" class="btn-accept float-sm-right" data-dismiss="modal" style="margin-right: -29px;"></button>

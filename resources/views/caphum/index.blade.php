@@ -73,7 +73,11 @@
                                     <p>
                                         <blockquote class="blockquote">
                                             <p class="mb-0"></p>
-                                            <footer class="blockquote-footer"><cite title="Source Title">"La capacitación de la fuerza laboral es vital pra la obtención de mejores resultados"</cite></footer>
+                                            <footer class="blockquote-footer">
+                                                <cite>"La capacitación de la fuerza laboral es vital pra la obtención de mejores resultados"</cite>
+                                                <br />
+                                                <cite title="Frase de Ernesto Che Guevara">"Si piensa que la capacitación es cara, pruebe con la ignorancia".</cite>
+                                            </footer>
                                         </blockquote>
                                     </p>
                                     @endif
@@ -139,14 +143,11 @@
 <br>
 @endsection
 
-@section('scripts')
 
+@section('scripts')
 <script src='{{ url("vendor/template/libs/charts/chartjs.js") }}'></script>
 <script src='{{ url("vendor/chart.js/dist/Chart.bundle.js") }}'></script>
 <script src='{{ url("vendor/chart.js/src/plugins/plugin-datalabels.js") }}'></script>
-<script src='{{ url("js/utils.js") }}'></script>
-<script src='{{ url("js/select.js") }}'></script>
-
 <script>
     var randomScalingFactor = function() {
         return Math.round(Math.random() * 100);
@@ -505,5 +506,5 @@
                     //     },1000)
                     // })
 
-                </script>
-                @endsection
+    </script>
+@endsection

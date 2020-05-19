@@ -37,9 +37,11 @@ Route::delete('/config/permisos', ['as'=>'permisos.store','uses'=>'Config\Permis
 Route::group(['prefix' => 'caphum'], function () {
     Route::get('/', ['as'=>'caphum','uses'=>'Caphum\CaphumController@index']);
     Route::resource('areas', 'Caphum\AreasController',["as" => 'caphum']);
+    Route::get('/getGraficos', ['as' => 'plantillaGraficos', 'uses' => 'Caphum\CaphumController@getGraficos']);
 
-    //------------------- Plantill ------------------------------
-    Route::resource('plantilla', 'Caphum\PlantillaCargosController',["as" => 'plantilla']);
+    //------------------- Plantilla ------------------------------
+    Route::resource('plantillaCargos', 'Caphum\PlantillaCargosController',["as" => 'plantilla']);
+
 
 
     // CapHum Cargos
@@ -227,7 +229,10 @@ Route::group(['prefix' => 'caphum'], function () {
 
 Route::post('/moveElements', ['as'=>'changePosition','uses'=>'Base\PositionController@move']);
 
-
+// ------------ Enlaces a los graficos
 Route::get('graficos/{nombre}',function($nombre){
     return view('graficos.ejemplo',compact('nombre'));
+});
+Route::get('graficos_plantilla/',function(){
+    return view('graficos.plantilla');
 });

@@ -52,14 +52,20 @@
     <div id="table_disable_cover"></div>
 @stop
 
+
 @section('scripts')
     <script src="{{ asset('js/select.js') }}"></script>
     <script src="{{ asset('js/table_inline_edit.js') }}"></script>
     <script src="{{ asset('js/validator/validator.js') }}"></script>
     <script src="{{ asset('js/validator/multifield.js') }}"></script>
-    <script src="{{asset('vendor/jspdf/jspdf.min.js')}}"></script>
-    <script src="{{asset('vendor/jspdf/jspdf.plugin.autotable.js')}}"></script>
+    <script src="{{ asset('vendor/jspdf/jspdf.min.js') }}"></script>
+    <script src="{{ asset('vendor/jspdf/jspdf.plugin.autotable.js') }}"></script>
     <script src="{{ asset('js/render_components.js') }}"></script>
+    <script src='{{ url("js/utils.js") }}'></script>
+    <script src='{{ url("js/select.js") }}'></script>
+    <script src='{{ url("vendor/template/libs/charts/chartjs.js") }}'></script>
+    <script src='{{ url("vendor/chart.js/dist/Chart.bundle.js") }}'></script>
+    <script src='{{ url("vendor/chart.js/src/plugins/plugin-datalabels.js") }}'></script>
     <script>
         var reactivar='{{$reactivar}}';
         var validator = new FormValidator({"events" : ['blur', 'input', 'change']}, document.forms[0]);

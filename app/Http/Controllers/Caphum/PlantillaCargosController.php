@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use App\Models\Caphum\Areas;
+use App\Models\Caphum\PlantillaCargos;
+
 
 class PlantillaCargosController extends Controller
 {
@@ -136,4 +138,18 @@ class PlantillaCargosController extends Controller
     {
         //
     }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getGraficos()
+    {
+        $sexos = PlantillaCargos::all();
+
+        return true;
+    }
+
+
 }
