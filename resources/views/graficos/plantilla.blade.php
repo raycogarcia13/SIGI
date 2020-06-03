@@ -39,7 +39,7 @@
         </div>
         <div class="clearfix"></div>
         <div class="col">
-            <table class="table table-striped table-bordered">
+            <!-- table class="table table-striped table-bordered">
                 <thead>
                     <tr>
                         <th scope="col">Etiqueta de final</th>
@@ -60,6 +60,15 @@
                         <td>9</td>
                     </tr>
                 </tbody>
+            </table -->
+
+            <table id="example" class="display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Sexo</th>
+                        <th>Cant.</th>
+                    </tr>
+                </thead>
             </table>
         </div>
         <div class="col">
@@ -91,7 +100,9 @@
 
 <script>
 // Las URL
-var urlPath1 = 'http://' + window.location.hostname + ':8000/caphum/getGraficos';
+//var urlPath1 = 'http://' + window.location.hostname + ':8000/caphum/getGraficos';
+var urlPath1 = '/caphum/getGraficos/grafico_sexos';
+var urlPath2 = '/caphum/getGraficos/tabla_sexos';
 
 
 // llamadas a la funcion con sus URL, el nombre del id del canvar y el tipo de grafico a formar
@@ -101,7 +112,7 @@ ajaxGet(urlPath1, 'cateOcupaGraf', 'pie');
 function ajaxGet(urlPath, ID, TipoGrafico){
     var request = $.ajax({
          method: 'GET',
-         url: urlPath,
+         url: urlPath1,
          dataType : "JSON",
      });
 
@@ -155,6 +166,29 @@ function crearCharjs(response, id, TipoGrafico){
     });
 
 }
+
+$('#example').DataTable( {
+        //"processing": true,
+        //"serverSide": true,
+        paging: false,
+        searching: false,
+        sort: false,
+        info: false,
+        // ajax: '/caphum/getGraficos/tabla_sexos',
+        ajax: {
+            url: '/caphum/getGraficos/tabla_sexos',
+            dataSrc: ''
+        },
+         columns: [
+            { data: 0 },
+            { data: 1 }
+        ]
+            //"dataType": "json"
+            //"dataSrc": "data",
+            //"data": data.valores,
+            //"contentType": "application/json"
+
+    } );
 
 
 </script>

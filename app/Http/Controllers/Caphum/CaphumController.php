@@ -40,7 +40,7 @@ class CaphumController extends Controller
      *
      * @return  \Uliminate\Http\Response
      */
-    public function getGraficos()
+    public function getGraficos($datos = null)
     {
         $trabajadores = Trabajador::select('ci')->get();
 
@@ -51,14 +51,30 @@ class CaphumController extends Controller
             ($valor/2) ? $mas++ : $fem++;
         }
 
-        $sexo = [];
-        $sexo = array(
+        $grafico_sexo = [];
+        $grafico_sexo = array(
             'sexos' => array("masculino", "femenino"),
             'valores'=> array($mas,$fem),
         );
 
-        //var_dump($sexo);
-        // $enviar = json_encode($sexo);
-        return json_encode($sexo);
+
+        $tabla_sexos = [
+            ["masculino", $mas],
+            ["femenino", $fem]
+        ];
+
+
+
+        if ($datos == "grafico_sexos")
+        {
+            return json_encode($grafico_sexo);
+        }
+        elseif ($datos == "tabla_sexos")
+        {
+            return json_encode($tabla_sexos);
+        }
+
+        return pass;
+
     }
 }

@@ -137,12 +137,7 @@ setBasicClickEvents();
 setInterval(setBasicClickEvents(), 100);
 
 function toCsv(rows) {
-    // const rows = [
-    //     ["name1", "city1", "some other info"],
-    //     ["name2", "city2", "more info"]
-    // ];
-
-    let csvContent = "data:text/csv;charset=utf-8,";
+        let csvContent = "data:text/csv;charset=utf-8,";
 
     rows.forEach(function(rowArray) {
         let row = rowArray.join(",");
@@ -211,18 +206,104 @@ function toExcel(data) {
     return (sa);
 }
 
-function toPdf(data, title) {
-    var doc = new jsPDF('p', 'pt', 'letter');
+
+function toPdf(data, title, dpto = null, email = null) {
+
+    // Para crear el footer con el paginado y algo mas
+    const addFooters = doc => {
+      const pageCount = doc.internal.getNumberOfPages()
+
+      doc.setFont('helvetica', 'italic')
+      doc.setFontSize(8)
+      var sigi = new Image();
+      sigi.src = URLactual + '/images/SVG_CUPET_ID_SIGI.jpg';
+      for (var i = 1; i <= pageCount; i++) {
+        doc.setPage(i);
+        doc.setDrawColor(10, 98, 47);
+        doc.line(40, doc.internal.pageSize.height - 20, 750, doc.internal.pageSize.height - 20, 'S');
+        doc.text('Página ' + String(i) + ' de ' + String(pageCount), 40, doc.internal.pageSize.height - 10, {
+          align: 'left'
+        })
+
+        // Adicionando un texto e imagen al final derecha del footer
+        // doc.addImage(sigi, 'JPG', doc.internal.pageSize.width - 70, doc.internal.pageSize.height - 18, 30, 15);
+        // doc.text('Grupo de Progamación Los Cucos', doc.internal.pageSize.width - 200, doc.internal.pageSize.height - 10)
+
+      }
+    }
+
+    if(dpto == null )
+    {
+        dpto = "Empresa Comercializadora de Combustibles Isla de la Juventud.";
+    } else {
+        dpto = "Empresa Comercializadora de Combustibles Isla de la Juventud. " + dpto + ".";
+    }
+
+    if(email == null )
+    {
+        email = "Calle 13 final, Sierra Caballos. Teléfono: 46325111.";
+    } else {
+        email = "Calle 13 final, Sierra Caballos. Teléfono: 46325111. Email: " + email + ".";
+    }
+
+    var URLactual = location.origin;
+    var doc = new jsPDF('l', 'pt', 'letter');
     var elementHTML = data;
-    doc.autoTable(data.header, data.body, {
-        theme: 'grid',
-        margin: {
-            top: 60
+    var img = new Image();
+    img.src = URLactual + '/images/ico-_CUPET_ID%20CUPET.png';
+    doc.addImage(img, 'PNG', doc.internal.pageSize.width /2 - 20, 20, 70, 50);
+    doc.setFontStyle('arial');
+    doc.setFontSize(10);
+    doc.setTextColor(10, 98, 47);
+    doc.setFontStyle('bold');
+    doc.text(dpto, doc.internal.pageSize.width / 2, 90, null, null, 'center');
+    doc.setFontStyle('normal');
+    doc.text(email, doc.internal.pageSize.width / 2, 100, null, null, 'center');
+    doc.setDrawColor(10, 98, 47);
+    doc.line(40, 105, 750, 105, 'S');
+    doc.setFontSize(15);
+
+    doc.setTextColor(0, 0, 0);
+    doc.setFontType("bold");
+    doc.text(title, 40, 120);
+    doc.autoTable({
+        head: [data.header],
+        body: data.body,
+        margin: { top: 125 },
+        tableLineColor: [0, 0, 0],
+        tableLineWidth: 0.5,
+        styles: {
+          lineColor: [0, 0, 0],
+          lineWidth: 0.2,
         },
-        beforePageContent: function(data) {
-            doc.text(title, 40, 30);
-        }
+        headStyles: {
+          fillColor: [255, 255, 255],
+          textColor: [0, 0, 0],
+          valign: 'middle',
+          halign: 'center',
+        },
+        bodyStyles: {
+            //halign: 'center',
+            valign: 'middle',
+            fontStyle: 'normal',
+            textColor: [0, 0, 0],
+        },
+        // Default for all columns
+        //  styles: { overflow: 'ellipsize', cellWidth: 'wrap' },
+        // Override the default above for the text column
+        //  columnStyles: { text: { cellWidth: 'auto' } },
+        rowPageBreak: 'auto',
+        bodyStyles: { valign: 'top' },
+
     });
+    // footer de la pagina
+    //var finalY = doc.previousAutoTable.finalY + 15;
+    var pageSize = doc.internal.pageSize;
+    var pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
+
+    // PAGE NUMBERING
+    addFooters(doc);
+
     doc.save('SIGI-' + title + '.pdf');
 }
 

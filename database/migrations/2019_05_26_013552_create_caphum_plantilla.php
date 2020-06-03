@@ -13,11 +13,20 @@ class CreateCaphumPlantilla extends Migration
      */
     public function up()
     {
-        Schema::create('caphum_plantilla', function (Blueprint $table) {
+        Schema::create('caphum_plantilla_cargos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre');
-            $table->timestamp('fecha');
+            $table->integer('area');
+            $table->foreign('area')->references('id')->on('caphum_areas');
+            $table->integer('categoria_ocupacional');
+            $table->integer('tipo_categoria_ocupacional');
+            $table->integer('cantidad_cargos');
+            $table->integer('nivel_preparacion');
+            $table->integer('grupo_escala');
+            $table->integer('position');
+            $table->boolean('activo');
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 
@@ -28,6 +37,6 @@ class CreateCaphumPlantilla extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('caphum_plantilla');
+        Schema::dropIfExists('caphum_plantilla_cargos');
     }
 }

@@ -18,7 +18,7 @@ class CreateCaphumEstablecimiento extends Migration
             $table->string('nombre');
             $table->integer('root_id');
             $table->integer('plantilla_id');
-            $table->foreign('plantilla_id')->references('id')->on('caphum_plantilla');
+            $table->foreign('plantilla_id')->references('id')->on('caphum_plantilla_cargos');
             $table->timestamps();
         });
     }

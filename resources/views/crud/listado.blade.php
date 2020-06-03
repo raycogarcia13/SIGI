@@ -47,7 +47,8 @@
     <script src="{{ asset('js/validator/validator.js') }}"></script>
     <script src="{{ asset('js/validator/multifield.js') }}"></script>
     <script src="{{asset('vendor/jspdf/jspdf.min.js')}}"></script>
-    <script src="{{asset('vendor/jspdf/jspdf.plugin.autotable.js')}}"></script>
+    <!-- script src="{{asset('vendor/jspdf/jspdf.plugin.autotable.mi.js')}}"></script -->
+    <script src="{{asset('vendor/jspdf/jspdf.plugin.autotable.min.js')}}"></script>
 
     <script>
         renderComponents();
@@ -403,7 +404,8 @@
         })
 
         $('#pdfExport').click(function(){
-            let uri='{{$data_path}}?cantidad=...';
+            // let uri='{{$data_path}}?cantidad=...';
+            let uri='{{$data_pathPDF}}';
             $.get(uri,{},function(response){
                 let data={};
                 var bod=[];

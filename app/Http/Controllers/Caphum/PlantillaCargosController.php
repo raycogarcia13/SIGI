@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Caphum;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\DB;
+
 use App\Models\Caphum\Areas;
 use App\Models\Caphum\PlantillaCargos;
 
@@ -24,6 +26,9 @@ class PlantillaCargosController extends Controller
      */
     public function index()
     {
+
+        $logo = DB::table('config_empresa')->select('logo')->get();
+
         $edit=[
             'nombre'=>['header'=>true,'edit'=>false,'label'=>'Descripción(Órgano/Cargo/Técnica)'],
             'pertenece'=>['edit'=>false,'label'=>'Categoría Ocupacional'],
@@ -52,13 +57,15 @@ class PlantillaCargosController extends Controller
             'delete_path'=>'/caphum/motivosBajas',
             'update_path' => '/caphum/motivosBajas',
             'data_path' => '/caphum/getPlantilla',
+            'data_pathPDF' => '/caphum/getPlantillaPDF',
             'store'=>'/caphum/motivosBajas',
             'table_form'=>$edit,
             'create_form'=>$new,
             'table'=>'caphum_motivos_bajas',
             'reactivar'=>'/caphum/motivos/reactivar',
             'links'=>$links,
-            'plantilla'=>'plantilla'
+            'plantilla'=>'plantilla',
+            'logo'=>$logo,
             ]);
     }
 
@@ -149,6 +156,22 @@ class PlantillaCargosController extends Controller
         $sexos = PlantillaCargos::all();
 
         return true;
+    }
+
+    public function getJsonPDF(Request $request)
+    {
+        $data['data'] = DB::table('caphum_cargos')
+                   ->join('caphum_areas', 'caphum_cargos.area', '=','caphum_areas.id' )
+                   ->join('caphum_niveles_preparacion', 'caphum_cargos.nivel', '=','caphum_niveles_preparacion.id' )
+                   ->join('caphum_grupos_escalas', 'caphum_cargos.grupos_escala', '=','caphum_grupos_escalas.id' )
+                   ->join('caphum_categorias_ocupacionales', 'caphum_cargos.categoria_oc', '=','caphum_categorias_ocupacionales.id' )
+                   ->join('caphum_tipos_categorias_ocupacionales', 'caphum_cargos.tipo_categoria_oc', '=','caphum_tipos_categorias_ocupacionales.id' )
+                   ->select('caphum_cargos.*', 'caphum_areas.nombre as area', 'caphum_niveles_preparacion.nombre as nivel', 'caphum_grupos_escalas.nombre as grupos_escala', 'caphum_categorias_ocupacionales.nombre as categoria_oc', 'caphum_tipos_categorias_ocupacionales.nombre as tipo_categoria_oc')
+                   ->orderBy('deleted_at','ASC')
+                   //->paginate($cantidad)
+                   ->get();
+
+        return $data;
     }
 
 

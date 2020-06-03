@@ -66,6 +66,8 @@
     <script src='{{ url("vendor/template/libs/charts/chartjs.js") }}'></script>
     <script src='{{ url("vendor/chart.js/dist/Chart.bundle.js") }}'></script>
     <script src='{{ url("vendor/chart.js/src/plugins/plugin-datalabels.js") }}'></script>
+    <script src='{{ url("vendor/template/js/jquery.dataTables.min.js") }}'></script>
+
     <script>
         var reactivar='{{$reactivar}}';
         var validator = new FormValidator({"events" : ['blur', 'input', 'change']}, document.forms[0]);
@@ -410,7 +412,8 @@
         })
 
         $('#pdfExport').click(function(){
-            let uri='{{$data_path}}?cantidad=...';
+            // let uri='{{$data_path}} ?cantidad=...';
+            let uri='{{$data_pathPDF ?? ''}}';
             $.get(uri,{},function(response){
                 let data={};
                 var bod=[];

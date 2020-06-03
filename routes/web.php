@@ -37,10 +37,17 @@ Route::delete('/config/permisos', ['as'=>'permisos.store','uses'=>'Config\Permis
 Route::group(['prefix' => 'caphum'], function () {
     Route::get('/', ['as'=>'caphum','uses'=>'Caphum\CaphumController@index']);
     Route::resource('areas', 'Caphum\AreasController',["as" => 'caphum']);
-    Route::get('/getGraficos', ['as' => 'plantillaGraficos', 'uses' => 'Caphum\CaphumController@getGraficos']);
+    // Route::get('/getGraficos/', ['as' => 'plantillaGraficos', 'uses' => 'Caphum\CaphumController@getGraficos']);
+    Route::get('/getGraficos/{datos?}', ['as' => 'plantillaGraficos', 'uses' => 'Caphum\CaphumController@getGraficos']);
+    // Route::get('/getGraficos/{datos}'
+    //     return
+    // );
 
     //------------------- Plantilla ------------------------------
     Route::resource('plantillaCargos', 'Caphum\PlantillaCargosController',["as" => 'plantilla']);
+    Route::resource('plantilla', 'Caphum\PlantillaCargosController',["as" => 'plantilla']);
+    Route::get('getPlantilla', ['as'=>'caphum','uses'=>'Caphum\PlantillaCargosController@getJson']);
+    Route::get('/getPlantillaPDF', ['as'=>'getPlantillaPDF','uses'=>'Caphum\PlantillaCargosController@getJsonPDF']);
 
 
 
@@ -48,6 +55,7 @@ Route::group(['prefix' => 'caphum'], function () {
     Route::resource('cargos', 'Caphum\CargosController',["as" => 'caphum']);
     Route::get('/getCargos', ['as'=>'getCargos','uses'=>'Caphum\CargosController@getJson']);
     Route::put('/cargoss/reactivar', ['as'=>'reactivarcargos','uses'=>'Caphum\CargosController@reactivar']);
+    Route::get('/getCargosPDF', ['as'=>'getCargosPDF','uses'=>'Caphum\CargosController@getJsonPDF']);
 
 
     //------------------------------ NOMENCLADORES ------------------------------------------------------------
@@ -236,3 +244,4 @@ Route::get('graficos/{nombre}',function($nombre){
 Route::get('graficos_plantilla/',function(){
     return view('graficos.plantilla');
 });
+
